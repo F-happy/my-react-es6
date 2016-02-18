@@ -1,5 +1,6 @@
 /**
  * webpack main config
+ * 这里是webpack文件的真正配置文件
  * @authors fuhuixiang
  * @date    2016-02-18
  * @version 1.0.0
@@ -13,6 +14,7 @@ const webpack           = require('webpack'),
 
 module.exports = (options)=> {
 
+    // 根据传入的参数来进行后续操作的配置
     let outPath = {
         'CDN': options.CDNPath,
         'root': '/static/' + (options.build ? (options.version + '/') : ''),
@@ -22,8 +24,10 @@ module.exports = (options)=> {
         'js': options.jsPath + '/'
     };
 
+    // 这个为webpack的过滤器数组, 在这里将会配置过滤器的信息
     let loader = [
         {
+            // js过滤器, 将ES6风格的reacts代码编译成正常浏览器识别的ES5代码
             test: /\.js$/,
             loader: 'babel-loader',
             exclude: /node_modules/,
@@ -32,10 +36,12 @@ module.exports = (options)=> {
             }
         },
         {
+            // SCSS过滤器会将SCSS样式导出为独立的css文件而不是react风格的行内样式
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
         },
         {
+            // 图片过滤器会将小于8k的文件直接以data数据的形式写在样式中, 而其他的文件才会正常引入
             test: /\.(jpg|png)$/,
             loader: 'url-loader?limit=8192&name=' + outPath.root + outPath.image + '[name].[ext]'
         },
@@ -49,6 +55,7 @@ module.exports = (options)=> {
         }
     ];
 
+    // 判断如果当前需要进行编译则添加替换CDN地址的过滤器
     if (options.build) {
         loader.push({
             test: /\.html$/,
@@ -79,11 +86,15 @@ module.exports = (options)=> {
             extensions: ['', '.js', '.json']
         },
         plugins: [
+
+            // react的编译插件, 这样在打包的时候就是引入的react.min
             new webpack.DefinePlugin({
                 "process.env": {
                     NODE_ENV: JSON.stringify("production")
                 }
             }),
+
+            // 将行内样式打包成独立css文件的插件
             new ExtractTextPlugin(outPath.root + outPath.css + options.outStyleName,
                 {allChunks: true}
             )
