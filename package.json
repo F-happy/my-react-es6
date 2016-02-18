@@ -1,10 +1,10 @@
 {
   "name": "reactJs-Test",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "this is reactjs test project",
-  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
+    "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "sass-loader": "^3.1.2",
+    "string-replace-loader": "^1.0.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",

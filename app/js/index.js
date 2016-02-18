@@ -5,6 +5,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Hello from './pages/hello';
-require("./../scss/index.scss");
+
+require("../scss/index.scss");
+require("../index.html");
 
 ReactDOM.render(<Hello name="fuhuixiang" />, document.getElementById('app'));
