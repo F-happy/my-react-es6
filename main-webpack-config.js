@@ -24,6 +24,14 @@ module.exports = (options)=> {
         'js': options.jsPath + '/'
     };
 
+    let entrys = [
+        path.resolve(__dirname, options.mainJsPath)
+    ];
+
+    if(options.hotServer){
+        entrys.push('webpack/hot/only-dev-server');
+    }
+
     // 这个为webpack的过滤器数组, 在这里将会配置过滤器的信息
     let loader = [
         {
@@ -70,10 +78,7 @@ module.exports = (options)=> {
     }
 
     return {
-        entry: [
-            'webpack/hot/only-dev-server',
-            path.resolve(__dirname, options.mainJsPath)
-        ],
+        entry: entrys,
         output: {
             path: path.resolve(__dirname, 'build'),
             filename: outPath.root + outPath.js + options.outJsName,

@@ -11,7 +11,7 @@ class Hello extends Component {
 
     render(){
         return (
-            <div>Hello, {this.props.name}!</div>
+            <div>good, {this.props.name}!</div>
         );
     }
 }

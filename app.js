@@ -10,9 +10,11 @@
 const express = require('express'),
       app     = express();
 
-app.get('/', (req, res)=>{
-    res.send('hello world');
-});
+app.use(express.static('build'));
+
+//app.get('/', (req, res)=>{
+//    res.send('hello world');
+//});
 
 const server = app.listen(8080, ()=>{
 
