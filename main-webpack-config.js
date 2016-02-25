@@ -97,7 +97,11 @@ module.exports = (options)=> {
             // 将行内样式打包成独立css文件的插件
             new ExtractTextPlugin(outPath.root + outPath.css + options.outStyleName,
                 {allChunks: true}
-            )
+            ),
+
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.OccurrenceOrderPlugin(),
+            new webpack.optimize.UglifyJsPlugin()
         ]
     }
 };
