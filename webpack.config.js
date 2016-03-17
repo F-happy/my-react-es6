@@ -14,7 +14,7 @@ module.exports = require("./main-webpack-config")({
     build: false,
 
     // 热启动服务器
-    hotServer: false,
+    hotServer: true,
 
     // 开发项目的版本号, 如果build为true那么将会使用版本号来进行CDN的更新
     version: '0.0.0',

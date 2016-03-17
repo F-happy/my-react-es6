@@ -1,18 +1,18 @@
-
 @font-face {
-  font-family: s;
-  font-weight: normal;
-  font-style: normal;
-
-  src: url('../font/1.ttf')  format('woff');
-}
-body {
-  #app {
-    color: #00b4ff;
-    font-size: 40px;
     font-family: s;
-  }
+    font-weight: normal;
+    font-style: normal;
 
-  background-image: url(../images/bg.png);
+    src: url('../font/1.ttf') format('woff');
+}
+
+body {
+    #app {
+        color: #00b4ff;
+        font-size: 40px;
+        font-family: s, sans-serif;
+    }
+
+    //background-image: url(../images/bg.png);
 }
 
