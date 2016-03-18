@@ -7,17 +7,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory} from 'react-router';
 
-import Hello from './pages/hello';
-import Good from './pages/hello2';
+import HomePages from './pages/HomePages';
 
 require("../scss/index.scss");
 require("../index.html");
 
 ReactDOM.render((
     <Router history={hashHistory}>
-        <Route path="/">
-            <Route path="hello" component={Hello} />
-            <Route path="good" component={Good} />
+        <Route path="/" component={HomePages}>
         </Route>
     </Router>
 ), document.getElementById('app'));
