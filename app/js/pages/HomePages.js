@@ -28,9 +28,6 @@ export default class HomePages extends React.Component {
             loadStatus: 0, // 0 可以滚动，1正在加载数据　2 没有下一页数据
             loadText: '点击加载更多'
         };
-    }
-
-    componentWillMount() {
         document.body.classList.add('home-page');
     }
 

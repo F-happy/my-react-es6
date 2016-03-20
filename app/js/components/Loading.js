@@ -11,14 +11,8 @@ export default class Loading extends React.Component {
         super(props);
         this.state = {
             'status': ' remove',
-            'skin': 1
+            'skin': this.props.skin || 1
         };
-    }
-
-    componentWillMount() {
-        this.setState({
-            skin: this.props.skin || 1
-        })
     }
 
     showLoading(dom) {
