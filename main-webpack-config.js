@@ -10,6 +10,8 @@
 
 const webpack           = require('webpack'),
       path              = require('path'),
+      autoprefixer      = require('autoprefixer'),
+      precss            = require('precss'),
       ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (options)=> {
@@ -28,7 +30,7 @@ module.exports = (options)=> {
         path.resolve(__dirname, options.mainJsPath)
     ];
 
-    if(options.hotServer){
+    if (options.hotServer) {
         entrys.push('webpack/hot/only-dev-server');
     }
 
@@ -46,7 +48,7 @@ module.exports = (options)=> {
         {
             // SCSS过滤器会将SCSS样式导出为独立的css文件而不是react风格的行内样式
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+            loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
         },
         {
             // 图片过滤器会将小于8k的文件直接以data数据的形式写在样式中, 而其他的文件才会正常引入
@@ -89,6 +91,12 @@ module.exports = (options)=> {
         },
         resolve: {
             extensions: ['', '.js', '.json']
+        },
+        postcss: function () {
+            return {
+                defaults: [autoprefixer, precss],
+                cleaner: [autoprefixer({browsers: []})]
+            };
         },
         plugins: [
 
