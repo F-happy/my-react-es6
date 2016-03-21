@@ -20,8 +20,8 @@ build/Release
 
 # Dependency directories
 node_modules
-.sass-cache/
 .idea/
+.sass-cache/
 bower_components
 
 # Build files
