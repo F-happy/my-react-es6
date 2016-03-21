@@ -9,7 +9,9 @@ import DocumentTitle from 'react-document-title';
 import Header from '../components/Header';
 import Tab from '../components/Tab';
 import Loading from '../components/Loading';
-import NProgress from '../uitls/nprogress';
+import NProgress from '../utils/nprogress';
+
+import API from '../utils/APIUtils';
 
 export default class HomePages extends React.Component {
 
@@ -32,21 +34,27 @@ export default class HomePages extends React.Component {
     }
 
     componentDidMount() {
-        this.loadGoods();
-        this.listenTo(MainStore, function (err, result) {
-            if (!err) {
-                if (result['action'] == 'clickBanner') { // 处理banner点击
-                    console.log(result);
-                    this.transitionTo('Detail', {id: result['menu']['sid']})
-                }
-            }
-        });
+        // this.loadGoods();
+        // this.listenTo(MainStore, function (err, result) {
+        //     if (!err) {
+        //         if (result['action'] == 'clickBanner') { // 处理banner点击
+        //             console.log(result);
+        //             this.transitionTo('Detail', {id: result['menu']['sid']})
+        //         }
+        //     }
+        // });
     }
 
     // 读取首页商品
     loadGoods() {
         let loadImg = this.refs.Loading;
         let loadNum = this.state.loadNum;
+
+        console.log(API.getRequest('name'));
+
+        API.get('goods/list', (data)=>{
+            console.log(data);
+        });
 
         NProgress.start();
     }
@@ -59,6 +67,7 @@ export default class HomePages extends React.Component {
                     <Loading ref="Loading"/>
                     <Header title="零钱夺宝" right={right}/>
                     <Tab tabs={this.state.tabs}></Tab>
+                    <button onClick={this.loadGoods.bind(this)}>点我测试</button>
                 </section>
             </DocumentTitle>
         );
