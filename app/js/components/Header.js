@@ -3,7 +3,6 @@
  */
 'use strict';
 import React from 'react';
-// import {render} from 'react-dom';
 import {Link} from 'react-router';
 
 export default class Header extends React.Component {
@@ -13,9 +12,9 @@ export default class Header extends React.Component {
 
         // have left
         if (this.props.left) {
-            let icon = 'icon mr12';
+            let icon = 'icon header-mr';
             if (this.props.left.icon) {
-                icon = 'icon mr12 ' + this.props.left.icon;
+                icon = 'icon header-mr ' + this.props.left.icon;
             }
             if (this.props.left.link) {
                 left =
@@ -36,9 +35,9 @@ export default class Header extends React.Component {
 
         // have right
         if (this.props.right) {
-            var icon = 'icon mr12';
+            var icon = 'icon header-mr';
             if (this.props.right.icon) {
-                icon = 'icon mr12 ' + this.props.right.icon;
+                icon = 'icon header-mr ' + this.props.right.icon;
             }
             if (this.props.right.link) {
                 right =
@@ -63,7 +62,7 @@ export default class Header extends React.Component {
         }
 
         return (
-            <header className="index-header">
+            <header className="main-header">
                 {left}
                 <h2 className="header-title">{this.props.title}</h2>
                 {right}

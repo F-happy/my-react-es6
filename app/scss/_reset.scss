@@ -1,10 +1,11 @@
 /*- reset -*/
 
 html {
-    -webkit-text-size-adjust:none;
-    -webkit-appearance:none;
+    -webkit-text-size-adjust: none;
+    -webkit-appearance: none;
 }
-html,body,div,p,header,footer{
+
+html, body, div, p, header, footer {
     margin: 0;
     padding: 0;
     border: 0;
@@ -12,20 +13,55 @@ html,body,div,p,header,footer{
     font-size: 100%;
     vertical-align: baseline;
 }
+
 html {
     line-height: 1;
-    font-family: Helvetica,sans-serif;
+    font-family: Helvetica, sans-serif;
+}
+
+div, p {
+    line-height: 1;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+
+    &[disabled] {
+        pointer-events: none;
+    }
+}
+
+img {
+    outline: none;
+    border: none;
 }
 
 input[type="text"],
 input[type="number"],
 input[type="submit"],
 input[type="tel"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     border-radius: 0;
-    @include border-radius(0);
+}
+
+input[type="number"] {
+    &::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+}
+
+select {
+    appearance: none;
+    border: none;
+}
+
+input, button, select {
+    &:focus {
+        outline: none;
+    }
 }
 
 /**
@@ -33,38 +69,38 @@ input[type="tel"] {
  *  应用于1024px以下设备
  *  移动设备的基本字体为16px
  */
-@media screen and (min-width : 640px) and (max-width : 1023px) {
+@media screen and (min-width: 640px) and (max-width: 1023px) {
     html {
-        font-size:32px;
+        font-size: 32px;
     }
 }
 
-@media screen and (max-width : 423px) and (min-width : 414px) {
+@media screen and (max-width: 423px) and (min-width: 414px) {
     html {
-        font-size:20.7px;
+        font-size: 20.7px;
     }
 }
 
-@media screen and (max-width : 413px) and (min-width : 384px) {
+@media screen and (max-width: 413px) and (min-width: 384px) {
     html {
-        font-size:19.2px;
+        font-size: 19.2px;
     }
 }
 
-@media screen and (max-width : 383px) and (min-width : 375px) {
+@media screen and (max-width: 383px) and (min-width: 375px) {
     html {
-        font-size:18.75px;
+        font-size: 18.75px;
     }
 }
 
-@media screen and (max-width : 374px) and (min-width : 360px) {
+@media screen and (max-width: 374px) and (min-width: 360px) {
     html {
-        font-size:18px;
+        font-size: 18px;
     }
 }
 
-@media screen and (max-width : 359px) and (min-width : 320px) {
+@media screen and (max-width: 359px) and (min-width: 320px) {
     html {
-        font-size:16px;
+        font-size: 16px;
     }
 }

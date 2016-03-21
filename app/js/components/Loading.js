@@ -35,9 +35,10 @@ export default class Loading extends React.Component {
     }
 
     render() {
+
         return (
             <div onTouchEnd={this.touchend.bind(this)}
-                 className={"modal-loading box bac bpc" + this.state.status + ' modal-loading-' + this.state.skin}>
+                 className={"modal-loading" + this.state.status + ' modal-loading-' + this.state.skin}>
                 {this.state.dom}
             </div>
         );

@@ -3,7 +3,6 @@
  */
 'use strict';
 import React from 'react';
-// import {render} from 'react-dom';
 import {Link} from 'react-router';
 
 export default class Tab extends React.Component {

@@ -63,7 +63,7 @@ export default class HomePages extends React.Component {
         var right = {icon: 'icon-user', link: '/info'};
         return (
             <DocumentTitle title="零钱夺宝">
-                <section className="index-panel">
+                <section className="main-panel">
                     <Loading ref="Loading"/>
                     <Header title="零钱夺宝" right={right}/>
                     <Tab tabs={this.state.tabs}></Tab>

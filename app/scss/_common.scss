@@ -67,3 +67,25 @@
         transform: rotate(360deg);
     }
 }
+
+.modal-loading {
+    display: -webkit-box;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    top: 0;
+    left: 0;
+
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+
+    .add {
+
+    }
+}
+
+.modal-loading-2 {
+    background: rgba(0, 0, 0, 0.6)
+}
