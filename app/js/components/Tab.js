@@ -19,7 +19,7 @@ export default class Tab extends React.Component {
         });
 
         return (
-            <ul className="ui-tab box bac bpc">
+            <ul className="ui-tab">
                 {tabs}
             </ul>
         );

@@ -103,7 +103,7 @@ module.exports = (options)=> {
             // react的编译插件, 这样在打包的时候就是引入的react.min
             new webpack.DefinePlugin({
                 "process.env": {
-                    NODE_ENV: JSON.stringify("production")
+                    // NODE_ENV: JSON.stringify("production")
                 }
             }),
 
