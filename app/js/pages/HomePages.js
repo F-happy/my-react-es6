@@ -10,6 +10,7 @@ import {Link} from 'react-router';
 import ReactSwipe from '../components/Swipe';
 import Header from '../components/Header';
 import Tab from '../components/Tab';
+import Top from '../components/Top';
 import Loading from '../components/Loading';
 import NProgress from '../utils/nprogress';
 
@@ -81,7 +82,8 @@ export default class HomePages extends React.Component {
                     <Tab tabs={this.state.tabs}></Tab>
                     <Banner bannerLists={this.state.bannersLists}></Banner>
                     <GoodList goodLists={this.state.goodLists}></GoodList>
-                    <button onClick={this.loadGoods.bind(this)}>点我测试</button>
+                    <Top/>
+                    <p onClick={this.loadGoods.bind(this)}>点击加载更多</p>
                 </section>
             </DocumentTitle>
         );

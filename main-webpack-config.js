@@ -56,7 +56,7 @@ module.exports = (options)=> {
             loader: 'url-loader?limit=8192&name=' + outPath.root + outPath.image + '[name].[ext]'
         },
         {
-            test: /\.ttf$/,
+            test: /\.woff$/,
             loader: 'file-loader?name=' + outPath.root + outPath.font + '[name].[ext]'
         },
         {
