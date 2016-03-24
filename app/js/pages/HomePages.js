@@ -4,16 +4,16 @@
 'use strict';
 
 import React from 'react';
-// import {render} from 'react-dom';
 import DocumentTitle from 'react-document-title';
 import {Link} from 'react-router';
+
 import ReactSwipe from '../components/Swipe';
 import Header from '../components/Header';
 import Tab from '../components/Tab';
 import Top from '../components/Top';
 import Loading from '../components/Loading';
-import NProgress from '../utils/nprogress';
 
+import NProgress from '../utils/nprogress';
 import API from '../utils/APIUtils';
 
 export default class HomePages extends React.Component {
@@ -38,6 +38,7 @@ export default class HomePages extends React.Component {
 
     componentDidMount() {
         this.loadGoods();
+        this.loadBanners();
         // this.listenTo(MainStore, function (err, result) {
         //     if (!err) {
         //         if (result['action'] == 'clickBanner') { // 处理banner点击
@@ -50,25 +51,29 @@ export default class HomePages extends React.Component {
 
     // 读取首页商品
     loadGoods() {
-        let loadImg = this.refs.Loading;
-        let loadNum = this.state.loadNum;
-
-        console.log(API.getRequest('name'));
-
-        API.get('goods/list', (data)=> {
+        API.get('goods/list', {
+            start: this.state.currentSid
+        }, (data)=> {
             this.setState({
+                'currentSid': (data.d[data.d.length-1]).sid,
                 'goodLists': data.d
             });
         });
 
-        API.get('goods/banners', (data)=> {
-            console.log(data);
+        // NProgress.start();
+    }
+
+    loadBanners(){
+        API.get('goods/banners', '', (data)=> {
+            console.log(data.d);
             this.setState({
                 'bannersLists': data.d
             });
         });
+    }
 
-        // NProgress.start();
+    addGoods(){
+
     }
 
     render() {
@@ -83,7 +88,7 @@ export default class HomePages extends React.Component {
                     <Banner bannerLists={this.state.bannersLists}></Banner>
                     <GoodList goodLists={this.state.goodLists}></GoodList>
                     <Top/>
-                    <p onClick={this.loadGoods.bind(this)}>点击加载更多</p>
+                    <p onClick={this.addGoods.bind(this)}>点击加载更多</p>
                 </section>
             </DocumentTitle>
         );
@@ -105,7 +110,7 @@ class GoodList extends React.Component {
         this.props.goodLists.forEach((value, index)=> {
             goodList.push(
                 <section className="item">
-                    <Link to={'/detail/'+value.sid}>
+                    <Link to={'/detail/' + value.sid}>
                         <img className="item-icon" src={value.icon} alt={value.description}/>
                         <h2 className="item-title">{value.title}</h2>
                         <div className="item-content">
@@ -146,7 +151,9 @@ class Banner extends React.Component {
 
         this.props.bannerLists.forEach((value, index)=> {
             bannerList.push(
-                <img className="banner-img" src={value.img}></img>
+                <a href={value.url}>
+                    <img className="banner-img" src={value.img}></img>
+                </a>
             );
         });
 

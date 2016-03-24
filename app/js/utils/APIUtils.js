@@ -37,9 +37,10 @@ class APIUtils {
      * @param path
      * @param callback
      */
-    get(path, callback) {
+    get(path, par, callback) {
         request.get(this.root + path)
             // .withCredentials()
+            .query(par)
             .set('Accept', 'application/json')
             .set('Content-Type', 'application/x-www-form-urlencoded')
             .end((err, res) => {
