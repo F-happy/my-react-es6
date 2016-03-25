@@ -45,7 +45,7 @@ export default class DetailInfoPages extends React.Component {
                 <section className="main-panel">
                     <Loading ref="Loading"/>
                     <Header title="奖品详情" right={right}/>
-                    <div className="detail-info" dangerouslySetInnerHTML={{__html: this.state.goodinfo}} />
+                    <div className="detail-info" dangerouslySetInnerHTML={{__html: this.state.goodinfo}} ></div>
                 </section>
             </DocumentTitle>
         );
