@@ -216,8 +216,16 @@ class JoinList extends React.Component {
 
     render() {
 
+        let joinLists = [];
+
+
+
         return (
-            <div className="good-img"></div>
+            <ul className="good-join-list">
+                <li className="user-list">
+                    {joinLists}
+                </li>
+            </ul>
         );
     }
 }
