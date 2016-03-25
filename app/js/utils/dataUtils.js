@@ -5,13 +5,16 @@
 class DataUtils {
 
     // 构造函数
-    constructor() {
-    }
+    constructor(timeStr) {}
 
     /**
      * 判断是否纯粹的对象
-     * @param obj
-     * @returns {boolean}
+     *
+     * @method isPlainObject
+     *
+     * @param  {object}      obj [需要判断的对象]
+     *
+     * @return {Boolean}         [是否为一个对象]
      */
     isPlainObject(obj) {
         //判断是否非window和DOM对象的对象，
@@ -38,10 +41,12 @@ class DataUtils {
     }
 
     /**
-     * 数据本地存储, localstorage
-     * @param key
-     * @param value
-     * @returns {boolean}
+     * 数据本地存储
+     *
+     * @method setLocal
+     *
+     * @param  {String} key   [需要存储的key值]
+     * @param  {String} value [需要存储的内容]
      */
     setLocal(key, value) {
         if (object.prototype.toString.call(value) === '[object Array]' || this.isPlainObject(value)) {
@@ -56,6 +61,16 @@ class DataUtils {
         }
     }
 
+    /**
+     * 读取本地数据
+     *
+     * @method getLocal
+     *
+     * @param  {String} key   [需要读取的key值]
+     * @param  {String} value [是否转为字符串]
+     *
+     * @return {Json}         [返回一个json对象]
+     */
     getLocal(key, value) {
         let back = window.localStorage.getItem(key);
 
@@ -65,6 +80,35 @@ class DataUtils {
 
         return value ? JSON.parse(back) : back;
     }
+
+    /**
+     * 格式化时间
+     *
+     * @method formatTime
+     *
+     * @param  {String}   fmt [需要格式化的时间戳]
+     *
+     * @return {String}       [格式化后的时间]
+     */
+    formatTime(timeStr, fmt){
+        let time = new Date(parseInt(timeStr));
+        var o = {
+            "M+": time.getMonth() + 1,                 //月份
+            "d+": time.getDate(),                    //日
+            "h+": time.getHours(),                   //小时
+            "m+": time.getMinutes(),                 //分
+            "s+": time.getSeconds(),                 //秒
+            "q+": Math.floor((time.getMonth() + 3) / 3), //季度
+            "S": time.getMilliseconds()             //毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (time.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
 }
 let dataUtil = new DataUtils();
 export default dataUtil;
