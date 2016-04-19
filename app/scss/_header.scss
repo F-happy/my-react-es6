@@ -1,0 +1,17 @@
+@import "utils";
+@import "variables";
+
+.main-header {
+    width: 100%;
+    height: pxToRem(88);
+    line-height: pxToRem(88);
+    background: $main-color;
+    color: $font-color;
+
+    .header-title {
+        text-align: center;
+        color: $font-color;
+        font-size: pxToRem(36);
+        font-weight: normal;
+    }
+}

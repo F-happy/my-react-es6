@@ -1,0 +1,274 @@
+@import "utils";
+@import "variables";
+
+body {
+    background: $bg-color;
+}
+
+.top {
+    position: fixed;
+    bottom: pxToRem(50);
+    right: pxToRem(50);
+    font-size: pxToRem(45);
+    width: 2rem;
+    height: 2rem;
+    background-color: #23a0ff;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 50%;
+    color: #fff;
+}
+
+.ui-tab {
+    display: -webkit-box;
+    width: 100%;
+    height: pxToRem(80);
+    margin: 0;
+    padding: 0;
+    color: $title-color;
+    font-size: pxToRem(28);
+    background: $font-color;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    li {
+        width: 49%;
+        height: pxToRem(38);
+        display: -webkit-box;
+        list-style: none;
+        text-align: center;
+        -webkit-box-pack: center;
+
+        &:first-child {
+            border-right: 1px solid $content-color;
+        }
+    }
+
+    .active {
+        position: relative;
+        top: 0;
+        left: 0;
+        color: $main-color;
+        &::after {
+            content: '';
+            position: absolute;
+            top: pxToRem(52);
+            left: 0;
+            width: 100%;
+            height: pxToRem(8);
+            background: $main-color;
+        }
+    }
+}
+
+//这个是测试,在正式版中将会移除
+#slider {
+    width: 100%;
+    height: pxToRem(210);
+    background: #23a0ff;
+}
+
+.goods {
+    text-align: center;
+    background: $font-color;
+}
+
+.results {
+    margin-top: pxToRem(20);
+    background: $font-color;
+}
+
+.item {
+    display: inline-block;
+    width: pxToRem(300);
+    margin: 0 -4px 0 0;
+    padding: 0 pxToRem(25);
+    height: pxToRem(386);
+    text-align: center;
+    border-bottom: 1px solid $border-color;
+
+    &:nth-child(2n+1) {
+        border-right: 1px solid $border-color;
+    }
+
+    .item-icon {
+        margin: pxToRem(20) auto pxToRem(10);
+        width: pxToRem(230);
+        height: pxToRem(230);
+    }
+
+    .item-title {
+        margin: 0 auto pxToRem(16);
+        @include omitWord(100%);
+        font-size: pxToRem(24);
+        color: $title-color;
+    }
+
+    .item-content {
+        display: inline-block;
+        width: 80%;
+        font-size: pxToRem(22);
+        color: $content-color;
+
+        p {
+            margin: 0;
+        }
+
+        .progress {
+            display: block;
+            width: 100%;
+            height: pxToRem(10);
+            margin-bottom: pxToRem(6);
+        }
+        .progress-new {
+            display: block;
+            width: 100%;
+            height: pxToRem(10);
+            border-radius: pxToRem(5);
+            background: linear-gradient(to right, #ffb026, #ff8426);
+            transition: .2s;
+        }
+
+        .item-text-left {
+            display: inline-block;
+            float: left;
+        }
+
+        .item-text-right {
+            display: inline-block;
+            float: right;
+        }
+
+        .color-active {
+            color: $main-color;
+        }
+    }
+
+    .icon {
+        font-size: pxToRem(52);
+        color: $main-color;
+    }
+}
+
+.add-more {
+    margin: 0 auto;
+    width: 100%;
+    height: pxToRem(80);
+    line-height: pxToRem(80);
+    text-align: center;
+    color: $content-color;
+    border-bottom: 1px solid $border-color;
+    background: $font-color;
+}
+
+.main-footer {
+    text-align: center;
+    font-size: pxToRem(22);
+    color: $content-color;
+    padding: pxToRem(50) pxToRem(25) 0;
+    margin: 0 auto pxToRem(40);
+
+    .footer-link {
+        font-size: pxToRem(28);
+        margin: 0 auto pxToRem(20);
+    }
+
+    a {
+        margin-right: pxToRem(50);
+        text-decoration: none;
+        color: #23a0ff;
+    }
+}
+
+.result-goods {
+    height: pxToRem(200);
+    margin: 0 auto;
+    padding: pxToRem(26) pxToRem(25) 0;
+    border-bottom: 1px solid $border-color;
+
+    .goods-img {
+        display: inline-block;
+        width: pxToRem(140);
+        height: pxToRem(140);
+        margin-right: pxToRem(20);
+    }
+
+    @at-root .ing {
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: pxToRem(100);
+            height: pxToRem(100);
+            @include backgroundImg($announcing);
+        }
+    }
+
+    .goods-info {
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        //width: pxToRem(470);
+    }
+
+    .good-title {
+        @include omitWord(pxToRem(470));
+        color: $title-color;
+        font-size: pxToRem(28);
+        margin: 0;
+    }
+
+    .good-money {
+        margin: 0;
+        color: $content-color;
+        font-size: pxToRem(24);
+    }
+
+    .good-times {
+        margin: pxToRem(30) 0 0;
+        color: $main-color;
+
+        .icon-time {
+            vertical-align: text-bottom;
+            margin-right: pxToRem(10);
+        }
+
+        .count-time {
+            margin-left: pxToRem(10);
+            font-size: pxToRem(58);
+        }
+    }
+
+    .user-info {
+        position: relative;
+        margin-top: pxToRem(20);
+
+        p {
+            //display: inline-block;
+            width: pxToRem(300);
+            margin: 0;
+            font-size: pxToRem(22);
+            color: $content-color;
+        }
+
+        .user-img {
+            position: absolute;
+            bottom: pxToRem(8);
+            right: 0;
+            width: pxToRem(72);
+            height: pxToRem(72);
+            border-radius: 50%;
+        }
+
+        .user-name {
+            color: $sub-color;
+        }
+
+        .user-num {
+            color: $main-color;
+        }
+    }
+}

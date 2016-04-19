@@ -32,7 +32,6 @@ export default class DetailPages extends React.Component {
         API.get('prize/info', {
             sid: sid
         }, (data)=> {
-            console.log(data.d);
             this.setState({
                 'goodinfo': data.d
             });
@@ -49,13 +48,13 @@ export default class DetailPages extends React.Component {
                     <Header title="零钱夺宝" right={right}/>
                     <GoodImg goodinfo={this.state.goodinfo}/>
                     <GoodInfo goodinfo={this.state.goodinfo}/>
-                    <Link className="old-item">
+                    <Link className="old-item" to="">
                         <span className="icon icon-uni65F6 color-old-item"></span>
                         往期揭晓
                         <span className="icon icon-uni53F3 icon-right"></span>
                     </Link>
                     <p className="good-tips">（重要说明：中奖者拥有该商品10年的使用权）</p>
-                    <JoinList gid={this.props.goodinfo.gid}></JoinList>
+                    <JoinList sid={this.props.params.id}></JoinList>
                     <GoodFooter/>
                 </section>
             </DocumentTitle>
@@ -128,7 +127,7 @@ class GoodInfo extends React.Component {
                             </h2>
                             <div className="dialog-codes-warp"></div>
                             <div className="dialog-close" onClick={this.closeDig.bind(this)}>确定</div>
-                        </div>
+                        </div>;
             Loading.showLoading(modal);
         });
     }
@@ -211,14 +210,87 @@ class GoodInfo extends React.Component {
 class JoinList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            start: 0,
+            userList: [],
+            userStr: ''
+        }
+    }
+
+    componentDidMount() {
+        // console.log(this.props.sid);
+        let sid = this.props.gid;
+        this.loadUser(sid);
+    }
+
+    /**
+     * 读取用户列表
+     *
+     * @method loadUser
+     *
+     * @param  {number} sid [商品sid]
+     */
+    loadUser(sid){
+        API.get('purchase/record', {
+            sid: sid,
+            start: this.state.start
+        }, (data)=> {
+            console.log(data);
+            if (!!data.d) {
+                this.setState({
+                    'userList': data.d
+                });
+            }
+            this.createList();
+        });
+    }
+
+    createList(){
+        console.log('sss'+typeof this.state.userList);
+
+        let userListHeader = '';
+        let userListBody = '';
+        let lastTime = '';
+        let userListStr = [];
+
+        Array.from(this.state.userList).forEach((v, k)=>{
+            console.log(v);
+
+            let date = new Date(v.buy_time * 1000);
+            let buyTime = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+            if (v.buy_date == lastTime) {
+                userListStr.push(
+                    <div className="users">
+                        <img src={v.headimg} className="user-img"/>
+                        <div className="user-info">
+
+                        </div>
+                    </div>
+                );
+                userListHeader += '';
+                userListBody += '<div class="users"><img src=' + v.headimg + ' class="user-img"><div class="user-info">' +
+                    '<p class="username">' + v.username + '</p><p class="addres">' + v.ip_address + '  IP: ' + v.ip + '</p>' +
+                    '<p class="user-text">参与 <span class="user-join">' + v.buy + '</span> 人次 ' +
+                    '<span class="join-time">' + buyTime + '</span></p></div></div>';
+                userListStr = userListHeader + userListBody;
+            } else {
+                lastTime = v.buy_date;
+                userListHeader += '<p class="list-title-time">' + v.buy_date + '</p>';
+                userListBody += '<div class="users"><img src=' + v.headimg + ' class="user-img"><div class="user-info">' +
+                    '<p class="username">' + v.username + '</p><p class="addres">' + v.ip_address + '  IP: ' + v.ip + '</p>' +
+                    '<p class="user-text">参与 <span class="user-join">' + v.buy + '</span> 人次 ' +
+                    '<span class="join-time">' + buyTime + '</span></p></div></div>';
+                userListStr = userListHeader + userListBody;
+            }
+        });
+
+        return userListStr;
     }
 
     render() {
 
         let joinLists = [];
-
-
 
         return (
             <ul className="good-join-list">

@@ -2,18 +2,5 @@
 @import 'common';
 @import 'banners';
 @import 'icon';
-
-
-.top {
-    position: fixed;
-    bottom: pxToRem(50);
-    right: pxToRem(50);
-    font-size: pxToRem(45);
-    width: 2rem;
-    height: 2rem;
-    background-color: #23a0ff;
-    text-align: center;
-    line-height: 2rem;
-    border-radius: 50%;
-    color: #fff;
-}
+@import "homePage";
+@import "header";
