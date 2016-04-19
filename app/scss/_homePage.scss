@@ -68,8 +68,13 @@ body {
     background: #23a0ff;
 }
 
-article {
+.goods {
     text-align: center;
+    background: $font-color;
+}
+
+.results {
+    margin-top: pxToRem(20);
     background: $font-color;
 }
 
@@ -172,5 +177,98 @@ article {
         margin-right: pxToRem(50);
         text-decoration: none;
         color: #23a0ff;
+    }
+}
+
+.result-goods {
+    height: pxToRem(200);
+    margin: 0 auto;
+    padding: pxToRem(26) pxToRem(25) 0;
+    border-bottom: 1px solid $border-color;
+
+    .goods-img {
+        display: inline-block;
+        width: pxToRem(140);
+        height: pxToRem(140);
+        margin-right: pxToRem(20);
+    }
+
+    @at-root .ing {
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: pxToRem(100);
+            height: pxToRem(100);
+            @include backgroundImg($announcing);
+        }
+    }
+
+    .goods-info {
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        //width: pxToRem(470);
+    }
+
+    .good-title {
+        @include omitWord(pxToRem(470));
+        color: $title-color;
+        font-size: pxToRem(28);
+        margin: 0;
+    }
+
+    .good-money {
+        margin: 0;
+        color: $content-color;
+        font-size: pxToRem(24);
+    }
+
+    .good-times {
+        margin: pxToRem(30) 0 0;
+        color: $main-color;
+
+        .icon-time {
+            vertical-align: text-bottom;
+            margin-right: pxToRem(10);
+        }
+
+        .count-time {
+            margin-left: pxToRem(10);
+            font-size: pxToRem(58);
+        }
+    }
+
+    .user-info {
+        position: relative;
+        margin-top: pxToRem(20);
+
+        p {
+            //display: inline-block;
+            width: pxToRem(300);
+            margin: 0;
+            font-size: pxToRem(22);
+            color: $content-color;
+        }
+
+        .user-img {
+            position: absolute;
+            bottom: pxToRem(8);
+            right: 0;
+            width: pxToRem(72);
+            height: pxToRem(72);
+            border-radius: 50%;
+        }
+
+        .user-name {
+            color: $sub-color;
+        }
+
+        .user-num {
+            color: $main-color;
+        }
     }
 }
