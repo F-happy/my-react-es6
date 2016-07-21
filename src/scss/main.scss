@@ -1,0 +1,82 @@
+@charset "utf-8";
+@import "base";
+@import "reset";
+@import "header";
+@import "detailinfo";
+@import "caldetail";
+@import "pay";
+@import "help";
+@import "rules";
+@import "about";
+@import "server";
+@import "certification";
+@import "client_help";
+@import "csc";
+@import "querytel";
+@import "querycard";
+@import "index";
+@import "footer";
+@import "share";
+@import "publish";
+@import "me";
+
+body {
+    background: $back-color;
+}
+
+.duobao-help-back {
+    background-image: $help-bg;
+    background-size: 100% auto;
+}
+
+.right-icon {
+    width: pxToRem(15);
+    height: pxToRem(27);
+    @include backgroundImg($icon-right);
+}
+
+.redpack-icon, .money-icon, .luck-icon {
+    width: pxToRem(50);
+    height: pxToRem(50);
+}
+
+.redpack-icon {
+    @include backgroundImg($icon-redpack);
+}
+
+.money-icon {
+    @include backgroundImg($icon-money);
+}
+
+.luck-icon {
+    @include backgroundImg($icon-luck);
+}
+
+.record-icon,
+.gift-list-icon,
+.share-list-icon,
+.addr-list-icon,
+.code-list-icon {
+    width: pxToRem(41);
+    height: pxToRem(41);
+}
+
+.record-icon {
+    @include backgroundImg($icon-record);
+}
+
+.gift-list-icon {
+    @include backgroundImg($icon-gift);
+}
+
+.share-list-icon {
+    @include backgroundImg($icon-share);
+}
+
+.addr-list-icon {
+    @include backgroundImg($icon-addr);
+}
+
+.code-list-icon {
+    @include backgroundImg($icon-qcode);
+}

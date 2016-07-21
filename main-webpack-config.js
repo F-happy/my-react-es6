@@ -1,11 +1,6 @@
 /**
- * webpack main config
- * 这里是webpack文件的真正配置文件
- * @authors fuhuixiang
- * @date    2016-02-18
- * @version 1.0.0
+ * Created by fuhuixiang on 16-7-20.
  */
-
 'use strict';
 
 const webpack           = require('webpack'),
@@ -33,7 +28,6 @@ module.exports = (options)=> {
     if (options.hotServer) {
         entrys.push('webpack/hot/only-dev-server');
     }
-
     // 这个为webpack的过滤器数组, 在这里将会配置过滤器的信息
     let loader = [
         {
@@ -65,6 +59,17 @@ module.exports = (options)=> {
         }
     ];
 
+    let _plugins = [
+
+        // 将行内样式打包成独立css文件的插件
+        new ExtractTextPlugin(outPath.root + outPath.css + options.outStyleName,
+            {allChunks: true}
+        ),
+
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin()];
+
     // 判断如果当前需要进行编译则添加替换CDN地址的过滤器
     if (options.build) {
         loader.push({
@@ -76,7 +81,15 @@ module.exports = (options)=> {
                     {search: 'static/js/', replace: outPath.CDN + outPath.root}
                 ]
             }
-        })
+        });
+    } else {
+        // react的编译插件, 这样在打包的时候就是引入的react.min
+        _plugins.push(
+            new webpack.DefinePlugin({
+                "process.env": {
+                    NODE_ENV: JSON.stringify("production")
+                }
+            }))
     }
 
     return {
@@ -98,23 +111,6 @@ module.exports = (options)=> {
                 cleaner: [autoprefixer({browsers: []})]
             };
         },
-        plugins: [
-
-            // react的编译插件, 这样在打包的时候就是引入的react.min
-            new webpack.DefinePlugin({
-                "process.env": {
-                    // NODE_ENV: JSON.stringify("production")
-                }
-            }),
-
-            // 将行内样式打包成独立css文件的插件
-            new ExtractTextPlugin(outPath.root + outPath.css + options.outStyleName,
-                {allChunks: true}
-            ),
-
-            new webpack.optimize.DedupePlugin(),
-            new webpack.optimize.OccurrenceOrderPlugin(),
-            new webpack.optimize.UglifyJsPlugin()
-        ]
+        plugins: _plugins
     }
 };

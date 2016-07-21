@@ -1,0 +1,99 @@
+@charset "utf-8";
+@import "base";
+
+.rank-controller {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: justify;
+    height: pxToRem(77);
+    margin: 0 auto;
+    padding: 0 pxToRem(35);
+    list-style: none;
+    border-top: 1px solid $line-color;
+    border-bottom: 1px solid $line-color;
+    .rank-result {
+        height: pxToRem(77);
+        line-height: pxToRem(77);
+        color: $title-color;
+        font-size: pxToRem(28);
+    }
+    .active {
+        position: relative;
+        color: $main-color;
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            width: pxToRem(56);
+            height: pxToRem(6);
+            background: $main-color;
+        }
+    }
+}
+
+.good-lists {
+    margin-bottom: pxToRem(100);
+}
+
+.good {
+    position: relative;
+    display: inline-block;
+    padding: pxToRem(20) pxToRem(25) pxToRem(15);
+    width: pxToRem(268);
+    border-bottom: 1px solid $line-color;
+
+    &:nth-child(odd) {
+        border-right: 1px solid $line-color;
+    }
+    .good-title {
+        width: pxToRem(270);
+        margin: pxToRem(15) auto;
+        padding: 0;
+        color: $title-color;
+        font-size: pxToRem(25);
+        font-weight: normal;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .good-icon {
+        display: block;
+        width: pxToRem(260);
+        height: pxToRem(260);
+        margin: 0 auto;
+    }
+    .good-total {
+        color: $font-text-color;
+        font-size: pxToRem(22);
+    }
+    .good-remain {
+        @extend .good-total;
+    }
+    @at-root .color-active {
+        color: $main-color;
+    }
+    .progress {
+        overflow: hidden;
+        width: pxToRem(200);
+        height: pxToRem(10);
+        margin: pxToRem(5) 0;
+        background: $progress-color;
+        @include border-radius(pxToRem(5));
+        .progress-new {
+            display: block;
+            height: pxToRem(10);
+            background: linear-gradient(to right, #ffb026, #ff8426);
+        }
+    }
+    .icon-add-shop {
+        position: absolute;
+        bottom: pxToRem(17);
+        right: pxToRem(25);
+        display: block;
+        width: pxToRem(54);
+        height: pxToRem(54);
+        @include backgroundImg($add-shop);
+    }
+}

@@ -1,0 +1,106 @@
+@charset "utf-8";
+// 这个文件是新建项目时默认引用的css样式文件，所有活动页面的字体单位全部使用rem
+//背景图片处理
+@mixin backgroundImg($value) {
+    background: $value no-repeat;
+    background-size: 100% auto;
+}
+
+//超出多少像素则显示省略号
+@mixin omitWord($value) {
+    width: $value;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@mixin border-radius($value) {
+    -webkit-border-radius: $value;
+    border-radius: $value;
+}
+
+//盒子布局函数
+@mixin box($align: center, $pack: center) {
+    $prefix-list: -webkit, -moz;
+    @each $prefix in $prefix-list {
+        display: #{$prefix}-box;
+        #{$prefix}-box-align: $align;
+        #{$prefix}-box-pack: $pack;
+    }
+}
+
+//将px转换成rem
+@function pxToRem($n) {
+    @if $n > 1 {
+        @return ($n / 32) + rem;
+    } @else {
+        @return 1px;
+    }
+}
+
+$main-color: #f95413;
+$font-color: #999;
+$title-color: #333;
+$back-color: #fff;
+$btn-back-color: #1ba2ff;
+$font-text-color: #666;
+$body-back-color: #eee;
+$body-color: #555;
+$line-color: #ddd;
+$text-back-color: #f8f8f8;
+$progress-color: #ccc;
+
+$add-shop: url(../images/add-shop.png);
+
+$newYearBack: url(../images/assistor.png);
+
+$help-bg: url(../images/help-bg.png);
+$help-header-img: url(../images/help-pic.png);
+$add-qq: url(../images/add-qq.png);
+
+$rules-header-img: url(../images/rules-head.png);
+$rules-A-img: url(../images/rules-a.png);
+$rules-B-img: url(../images/rules-b.png);
+$rules-rem-img: url(../images/rules-rem.png);
+
+$code-img: url(../images/icon.png);
+$about-title1: url(../images/about-pic1.png);
+$about-title2: url(../images/about-pic2.png);
+$about-title3: url(../images/about-pic3.png);
+$about-head-img: url(../images/logo.png);
+
+$card-img: url(../images/ecard.png);
+$phone-img: url(../images/phone.png);
+
+$query-no: url(../images/no.png);
+$query-btn-img: url(../images/server.png);
+
+$query-jd-head-img: url(../images/query-jd.png);
+
+$index-pk-img: url(../images/index_pk.png);
+$index-about-img: url(../images/index_about.png);
+$index-formula-img: url(../images/index_formula.png);
+$index-service-img: url(../images/index_service.png);
+
+$footer-home: url(../images/footer-home.png);
+$footer-home-act: url(../images/footer-home-act.png);
+$footer-share: url(../images/footer-share.png);
+$footer-share-act: url(../images/footer-share-act.png);
+$footer-list: url(../images/footer-list.png);
+$footer-list-act: url(../images/footer-list-act.png);
+$footer-me: url(../images/footer-me.png);
+$footer-me-act: url(../images/footer-me-act.png);
+$footer-new: url(../images/footer-new.png);
+$footer-new-act: url(../images/footer-new-act.png);
+
+$publish-time: url(../images/timeing.png);
+
+$icon-right: url(../images/right-icon.png);
+$icon-redpack: url(../images/redpack-icon.png);
+$icon-money: url(../images/xuyuanbi-icon.png);
+$icon-luck: url(../images/luckybea-icon.png);
+$icon-qcode: url(../images/qcode-icon.png);
+$icon-addr: url(../images/addr-icon.png);
+$icon-share: url(../images/share-list-icon.png);
+$icon-gift: url(../images/gift-list-icon.png);
+$icon-record: url(../images/record-icon.png);

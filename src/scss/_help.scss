@@ -1,0 +1,45 @@
+@charset "utf-8";
+@import "base";
+
+.duobao-help-view {
+    header {
+        width: pxToRem(393);
+        height: pxToRem(112);
+        margin: pxToRem(46) auto pxToRem(40);
+        @include backgroundImg($help-header-img);
+    }
+
+    .context {
+        width: pxToRem(580);
+        margin: 0 auto pxToRem(80);
+        section {
+            margin-bottom: pxToRem(26);
+            .head-title {
+                color: $title-color;
+                font-size: pxToRem(28);
+                font-weight: normal;
+                margin-top: 0;
+                margin-bottom: pxToRem(8);
+            }
+            p, h4 {
+                font-size: pxToRem(24);
+                color: $font-color;
+                line-height: pxToRem(30);
+            }
+        }
+    }
+
+    .btn {
+        position: fixed;
+        bottom: pxToRem(25);
+        right: pxToRem(25);
+        z-index: 99;
+        width: pxToRem(129);
+        height: pxToRem(129);
+        @include backgroundImg($add-qq);
+    }
+
+    .light {
+        color: $main-color;
+    }
+}

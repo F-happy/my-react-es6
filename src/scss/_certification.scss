@@ -1,0 +1,74 @@
+@charset "utf-8";
+@import "base";
+
+.certification-view {
+    .contents {
+        width: 90%;
+        margin: pxToRem(42) auto pxToRem(8);
+        .title {
+            margin-bottom: pxToRem(20);
+        }
+        img {
+            width: 100%;
+            margin-top: pxToRem(20);
+        }
+        p {
+            font-size: pxToRem(26);
+            line-height: pxToRem(30);
+            text-indent: 2em;
+            color: $font-text-color;
+            span {
+                font-weight: bold;
+            }
+        }
+        .url {
+            font-size: pxToRem(26);
+            color: $font-text-color;
+            margin-top: pxToRem(20);
+        }
+        .link {
+            font-size: pxToRem(26);
+            color: $font-text-color;
+        }
+    }
+    .title-cation {
+        color: $main-color;
+        font-weight: bold;
+        font-size: pxToRem(32);
+        margin: pxToRem(40) auto pxToRem(10);
+    }
+
+    .title2 {
+        color: $title-color;
+        font-size: pxToRem(28);
+        margin: pxToRem(20) auto pxToRem(8);
+        font-weight: bold;
+    }
+    .content-cation {
+        font-size: pxToRem(26);
+        line-height: pxToRem(28);
+        display: -webkit-box;
+        margin-top: pxToRem(12);
+        .key {
+            color: $font-text-color;
+        }
+        .value {
+            width: 50%;
+        }
+        .text {
+            color: $font-text-color;
+            width: 86%;
+            font-size: pxToRem(26);
+            line-height: pxToRem(28);
+        }
+    }
+    .foot-cation {
+        display: block;
+        width: pxToRem(579);
+        margin: pxToRem(20) auto pxToRem(64);
+    }
+
+    .br {
+        word-wrap: break-word;
+    }
+}

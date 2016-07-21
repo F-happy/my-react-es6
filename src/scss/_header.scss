@@ -1,0 +1,55 @@
+@charset "utf-8";
+@import "base";
+
+.index-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width: pxToRem(640);
+    height: pxToRem(80);
+    background: $main-color;
+    color: $back-color;
+    font-size: pxToRem(36);
+    z-index: 999;
+}
+
+#slider {
+    .banner-img {
+        width: pxToRem(640);
+    }
+}
+
+.controller-list {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    width: pxToRem(540);
+    height: pxToRem(183);
+    padding: 0 pxToRem(50);
+    .controller-img {
+        width: pxToRem(84);
+        height: pxToRem(84);
+        margin: 0 auto;
+    }
+    .controller-title {
+        margin-top: pxToRem(12);
+        font-size: pxToRem(24);
+        text-align: center;
+        color: $font-text-color;
+    }
+    .pk-img {
+        @include backgroundImg($index-pk-img);
+    }
+    .about-img {
+        @include backgroundImg($index-about-img);
+    }
+    .formula-img {
+        @include backgroundImg($index-formula-img);
+    }
+    .service-img {
+        @include backgroundImg($index-service-img);
+    }
+}
