@@ -16,6 +16,7 @@ export default class Published extends React.Component {
     }
 
     componentDidMount() {
+        document.querySelector('html').style.background = '#eee';
         API.get('openlist', '', (data)=> {
             this.createDom(data.new_lists);
         });
@@ -32,7 +33,7 @@ export default class Published extends React.Component {
                             <div className="good-title">{v.title}</div>
                             <div className="good-money">商品价值: ￥{v.total}</div>
                             <div className="times">
-                                <icon className="time-icon"></icon>
+                                <i className="time-icon"/>
                                 <span className="time-text">正在揭晓</span><span className="time-now">{v.time}</span>
                             </div>
                         </div>

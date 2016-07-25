@@ -4,6 +4,7 @@
 .publish-view {
     margin-top: pxToRem(80);
     margin-bottom: pxToRem(100);
+    background: $back-color;
 
     .publish-body {
         @include box();

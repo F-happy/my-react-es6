@@ -25,35 +25,7 @@
         margin: 0 auto pxToRem(10);
         width: pxToRem(50);
         height: pxToRem(50);
-    }
-    .new-img-footer {
-        @include backgroundImg($footer-new);
-    }
-    .act-new-img-footer {
-        @include backgroundImg($footer-new-act);
-    }
-    .home-img-footer {
-        @include backgroundImg($footer-home);
-    }
-    .act-home-img-footer {
-        @include backgroundImg($footer-home-act);
-    }
-    .share-img-footer {
-        @include backgroundImg($footer-share);
-    }
-    .act-share-img-footer {
-        @include backgroundImg($footer-share-act);
-    }
-    .list-img-footer {
-        @include backgroundImg($footer-list);
-    }
-    .act-list-img-footer {
-        @include backgroundImg($footer-list-act);
-    }
-    .me-img-footer {
-        @include backgroundImg($footer-me);
-    }
-    .act-me-img-footer {
-        @include backgroundImg($footer-me-act);
+        font-size: pxToRem(48);
+        text-align: center;
     }
 }

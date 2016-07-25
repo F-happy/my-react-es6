@@ -8,6 +8,7 @@ class APIUtils {
 
     // 构造函数
     constructor() {
+        // this.root = 'http://192.168.1.5:3000/h5/';
         this.root = 'http://127.0.0.1:3000/h5/';
     }
 

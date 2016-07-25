@@ -19,6 +19,7 @@ export default class Index extends React.Component {
     }
 
     componentDidMount() {
+        document.querySelector('html').style.background = '#fff';
         this.loadBanners();
         this.loadGoodInfo();
     }
@@ -31,7 +32,7 @@ export default class Index extends React.Component {
         });
     }
 
-    loadGoodInfo(){
+    loadGoodInfo() {
         API.get('goods', '', (data)=> {
             this.setState({
                 'goodLists': data.good_lists
@@ -41,9 +42,9 @@ export default class Index extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="index-view">
                 <DBheader/>
-                <Banner bannerLists={this.state.bannersLists}></Banner>
+                <Banner bannerLists={this.state.bannersLists}/>
                 <section className="controller-list">
                     <div className="box">
                         <div className="controller-img pk-img"></div>
@@ -53,10 +54,10 @@ export default class Index extends React.Component {
                         <div className="controller-img about-img"></div>
                         <p className="controller-title">客服中心</p>
                     </Link>
-                    <div className="box">
+                    <Link to="/iframe/helpframe" className="box">
                         <div className="controller-img formula-img"></div>
                         <p className="controller-title">公式详解</p>
-                    </div>
+                    </Link>
                     <div className="box">
                         <div className="controller-img service-img"></div>
                         <p className="controller-title">运营活动</p>
@@ -83,19 +84,16 @@ class Banner extends React.Component {
     }
 
     render() {
-
         let bannerList = [];
-
         this.props.bannerLists.forEach((value, index)=> {
             bannerList.push(
                 <Link key={index} to={'/detailinfo/' + value.url}>
-                    <img className="banner-img" src={value.img}></img>
+                    <img className="banner-img" src={value.img}/>
                 </Link>
             );
         });
-
         return (
-            <ReactSwipe imgLists={bannerList}></ReactSwipe>
+            <ReactSwipe imgLists={bannerList}/>
         );
     }
 }
@@ -103,9 +101,6 @@ class Banner extends React.Component {
 class GoodList extends React.Component {
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
     }
 
     render() {
@@ -119,16 +114,17 @@ class GoodList extends React.Component {
                         <div className="good-content">
                             <p className="good-total">总需{value.total}</p>
                             <p className="progress">
-                                <span className="progress-new" style={{width: (value.remain / value.total)*100+'%'}}></span>
+                                <span className="progress-new"
+                                      style={{width: (value.remain / value.total) * 100 + '%'}}/>
                             </p>
                             <p className="good-remain">剩余
                                 <span className="color-active">{value.remain}</span>
                             </p>
                         </div>
                     </Link>
-                    <icon className="icon-add-shop"></icon>
+                    <i className="icon-add-shop"/>
                 </section>
-            );
+            )
         });
         return (
             <article className="good-lists">

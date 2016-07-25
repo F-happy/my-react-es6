@@ -5,15 +5,26 @@
     position: fixed;
     top: 0;
     left: 0;
-    display: -webkit-box;
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
+    @include box(center, justify);
     width: pxToRem(640);
     height: pxToRem(80);
     background: $main-color;
     color: $back-color;
     font-size: pxToRem(36);
     z-index: 999;
+    font-family: duobao, sans-serif;
+    .header-left {
+        display: -webkit-box;
+        margin-left: pxToRem(20);
+        width: pxToRem(50);
+        height: pxToRem(30);
+    }
+    .header-right {
+        display: -webkit-box;
+        margin-right: pxToRem(20);
+        width: pxToRem(50);
+        height: pxToRem(30);
+    }
 }
 
 #slider {
@@ -23,9 +34,7 @@
 }
 
 .controller-list {
-    display: -webkit-box;
-    -webkit-box-pack: justify;
-    -webkit-box-align: center;
+    @include box(center, justify);
     width: pxToRem(540);
     height: pxToRem(183);
     padding: 0 pxToRem(50);
@@ -39,6 +48,9 @@
         font-size: pxToRem(24);
         text-align: center;
         color: $font-text-color;
+    }
+    .box {
+        display: block;
     }
     .pk-img {
         @include backgroundImg($index-pk-img);

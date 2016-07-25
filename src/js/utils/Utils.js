@@ -6,8 +6,8 @@
 class Utils {
     // 构造函数
     constructor() {
-        // this.root = 'http://api.wishbao.com/';
-        this.root = 'http://127.0.0.1:3000/';
+        this.root = 'http://api.wishbao.com/';
+        // this.root = 'http://127.0.0.1:3000/';
     }
 
     /**

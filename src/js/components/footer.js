@@ -10,11 +10,11 @@ export default class DBFooter extends React.Component {
         super(props);
         this.state = {
             icon: [
-                {className: 'home-img-footer', act: false, name: '首页', link: 'home'},
-                {className: 'new-img-footer', act: false, name: '最新揭晓', link: 'published'},
-                {className: 'share-img-footer', act: false, name: '晒单', link: 'shareview'},
-                {className: 'list-img-footer', act: false, name: '清单', link: 'home'},
-                {className: 'me-img-footer', act: false, name: '我的', link: 'me'}
+                {className: '&#xe60d;', act: false, name: '首页', link: 'home'},
+                {className: '&#xe603;', act: false, name: '最新揭晓', link: 'published'},
+                {className: '&#xe61d;', act: false, name: '晒单', link: 'shareview'},
+                {className: '&#xe60b;', act: false, name: '清单', link: 'shopcart'},
+                {className: '&#xe619;', act: false, name: '我的', link: 'me'}
             ]
         }
     }
@@ -53,7 +53,7 @@ export default class DBFooter extends React.Component {
             iconDom.push(
                 <div className={`footer-box${(v.act) ? ' main-color' : ''}`} key={i}>
                     <Link to={`/${v.link}/`}>
-                        <i className={`footer-icon ${(v.act) ? `act-${v.className}` : v.className}`}></i>{v.name}
+                        <i className='footer-icon' dangerouslySetInnerHTML={{__html: v.className}}/>{v.name}
                     </Link>
                 </div>
             );

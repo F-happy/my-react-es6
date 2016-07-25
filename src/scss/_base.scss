@@ -31,11 +31,20 @@
 
 //将px转换成rem
 @function pxToRem($n) {
-    @if $n > 1 {
-        @return ($n / 32) + rem;
-    } @else {
+    @if $n == 1 {
         @return 1px;
+    } @else {
+        @return ($n / 32) + rem;
     }
+}
+
+@font-face {
+    font-family: 'duobao';
+    src: url('//at.alicdn.com/t/font_1469428850_8838875.eot'); /* IE9*/
+    src: url('//at.alicdn.com/t/font_1469428850_8838875.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('//at.alicdn.com/t/font_1469428850_8838875.woff') format('woff'), /* chrome、firefox */
+    url('//at.alicdn.com/t/font_1469428850_8838875.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('//at.alicdn.com/t/font_1469428850_8838875.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 $main-color: #f95413;
@@ -58,11 +67,6 @@ $help-bg: url(../images/help-bg.png);
 $help-header-img: url(../images/help-pic.png);
 $add-qq: url(../images/add-qq.png);
 
-$rules-header-img: url(../images/rules-head.png);
-$rules-A-img: url(../images/rules-a.png);
-$rules-B-img: url(../images/rules-b.png);
-$rules-rem-img: url(../images/rules-rem.png);
-
 $code-img: url(../images/icon.png);
 $about-title1: url(../images/about-pic1.png);
 $about-title2: url(../images/about-pic2.png);
@@ -82,25 +86,14 @@ $index-about-img: url(../images/index_about.png);
 $index-formula-img: url(../images/index_formula.png);
 $index-service-img: url(../images/index_service.png);
 
-$footer-home: url(../images/footer-home.png);
-$footer-home-act: url(../images/footer-home-act.png);
-$footer-share: url(../images/footer-share.png);
-$footer-share-act: url(../images/footer-share-act.png);
-$footer-list: url(../images/footer-list.png);
-$footer-list-act: url(../images/footer-list-act.png);
-$footer-me: url(../images/footer-me.png);
-$footer-me-act: url(../images/footer-me-act.png);
-$footer-new: url(../images/footer-new.png);
-$footer-new-act: url(../images/footer-new-act.png);
-
 $publish-time: url(../images/timeing.png);
 
-$icon-right: url(../images/right-icon.png);
 $icon-redpack: url(../images/redpack-icon.png);
 $icon-money: url(../images/xuyuanbi-icon.png);
 $icon-luck: url(../images/luckybea-icon.png);
-$icon-qcode: url(../images/qcode-icon.png);
-$icon-addr: url(../images/addr-icon.png);
-$icon-share: url(../images/share-list-icon.png);
-$icon-gift: url(../images/gift-list-icon.png);
-$icon-record: url(../images/record-icon.png);
+$icon-qcode-share: url(../images/qcode-share.png);
+$icon-wechat: url(../images/wechat-icon.png);
+$icon-friend: url(../images/firend-icon.png);
+$icon-invited: url(../images/invited-header.png);
+$icon-like: url(../images/like-icon.png);
+$icon-shop-cart: url(../images/shop-cart-icon.png);

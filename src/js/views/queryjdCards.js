@@ -96,32 +96,22 @@ export default class queryJDCards extends React.Component {
         let returnPages = [];
 
         list.forEach((v, index)=> {
-            let src       = v.icon,
-                period    = v.period,
-                title     = v.title,
-                prizeTime = v.prize_time,
-                winner    = v.username,
-                cardno    = v.cardno,
-                cardpw    = v.cardpw,
-                nolink    = 'duobao://webview/copy?content=' + cardno,
-                pwlink    = 'duobao://webview/copy?content=' + cardpw;
-
             returnPages.push(
                 <section className="card" key={index}>
                     <figure>
-                        <img className="card-img" src={src}/>
+                        <img className="card-img" src={v.icon}/>
                         <div className="card-info">
-                            <h3 className="card-title">(第{period}期){title}</h3>
-                            <p className="cart-time">开奖时间：{prizeTime}</p>
-                            <p className="cart-time">中奖者：{winner}</p>
+                            <h3 className="card-title">(第{v.period}期){v.title}</h3>
+                            <p className="cart-time">开奖时间：{v.prize_time}</p>
+                            <p className="cart-time">中奖者：{v.username}</p>
                         </div>
                     </figure>
                     <section className="card-pwd">
-                        <p className="card-account">账号：<span className="card-lint">{cardno}</span>
-                            <a href={nolink}>复制</a>
+                        <p className="card-account">账号：<span className="card-lint">{v.cardno}</span>
+                            <a href={'duobao://webview/copy?content=' + v.cardno}>复制</a>
                         </p>
-                        <p className="card-password">密码：<span className="card-lint">{cardpw}</span>
-                            <a href={pwlink}>复制</a>
+                        <p className="card-password">密码：<span className="card-lint">{v.cardpw}</span>
+                            <a href={'duobao://webview/copy?content=' + v.cardpw}>复制</a>
                         </p>
                     </section>
                 </section>

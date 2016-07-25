@@ -17,7 +17,7 @@ export default class ShareView extends React.Component {
     }
 
     componentDidMount() {
-        document.body.style.background = '#eee';
+        // document.querySelector('html').style.background = '#eee';
         API.get('share_goods', '', (data)=> {
             this.setState({
                 'shareList': data.share_lists

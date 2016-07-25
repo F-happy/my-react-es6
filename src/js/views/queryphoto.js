@@ -12,7 +12,7 @@ export default class QueryPhoto extends React.Component {
             errorPage: false,
             addMore: true,
             pages: 1,
-            isDuoBao: utils.isDuoBao(),
+            isDuoBao: Utils.isDuoBao(),
             token: utils.getURL('token'),
             cardPages: []
         };

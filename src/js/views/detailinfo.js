@@ -16,7 +16,7 @@ export default class DetailInfo extends React.Component {
 
     componentDidMount() {
         document.title = '商品详情';
-        document.body.style.background = '#eee';
+        // document.body.style.background = '#eee';
         // let gid = utils.getURL('gid');
         let gid = this.props.params.id;
         if (!!gid) {

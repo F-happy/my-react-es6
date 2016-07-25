@@ -3,6 +3,7 @@
  */
 'use strict';
 import React from 'react';
+import DBheader from '../components/header';
 import utils from '../utils/Utils';
 import AddQQ from '../utils/addQQ';
 
@@ -12,8 +13,8 @@ export default class CSC extends React.Component {
         this.isDuoBao = utils.isDuoBao();
     }
 
-    joinQQ() {
-        AddQQ.addqq();
+    componentDidMount() {
+        document.querySelector('html').style.background = '#eee';
     }
 
     queryCard() {
@@ -82,26 +83,25 @@ export default class CSC extends React.Component {
     }
 
     render() {
-        document.title = '客服中心';
-        document.body.style.background = '#eee';
         return (
             <div className="csc-view">
-                <header>
-                    <div className="row" onTouchStart={this.queryCard.bind(this)}>
+                <DBheader title="客服中心" link="home"/>
+                <ul className="csc-header">
+                    <li className="row" onTouchStart={this.queryCard.bind(this)}>
                         <div className="card img"></div>
                         <div className="head-info">
                             <h3>卡密查询</h3>
                             <p>京东卡,天猫卡</p>
                         </div>
-                    </div>
-                    <div className="row line" onTouchStart={this.queryTelMoney.bind(this)}>
+                    </li>
+                    <li className="row line" onTouchStart={this.queryTelMoney.bind(this)}>
                         <div className="phone img"></div>
                         <div className="head-info">
                             <h3 style={{color: '#2dcf7d'}}>话费查询</h3>
                             <p>话费自助查</p>
                         </div>
-                    </div>
-                </header>
+                    </li>
+                </ul>
                 <ul className="tab" onTouchStart={this.changeTap.bind(this)}>
                     <li className="act" data-type="left">常见问题</li>
                     <li data-type="right">奖品问题</li>
@@ -119,7 +119,7 @@ export default class CSC extends React.Component {
                     </div>
                     <li className="row">
                         <span id="3" className="csc-title">怎么参与许愿夺宝？<span className="pre"/></span>
-                        <span id="4" className="csc-title">我的奖品由哪家物流公司配送？<span class="pre"/></span>
+                        <span id="4" className="csc-title">我的奖品由哪家物流公司配送？<span className="pre"/></span>
                     </li>
                     <div id="t3" className="text">选择想要得到的奖品，点击立即参与，选择想要参与许愿的份额，选择结算，确认支付即可得到对应的夺宝号码。</div>
                     <div id="t4" className="text">我们会根据不同的奖品性质配备不同的物流公司，数码类均为顺丰／京东发货。
@@ -149,7 +149,7 @@ export default class CSC extends React.Component {
                     <div id="t9" className="text">购买后得不到夺宝号可以查看一下-“我”的页面-“夺宝币”。付款失败系统会自动退还夺宝币给您，您可核对您的夺宝币的余额检查确认。</div>
                     <div id="t0" className="text">请联系在线客服解决。</div>
                 </ul>
-                <div className="add-qq" onClick={this.joinQQ.bind(this)}></div>
+                <div className="add-qq" onClick={AddQQ.addqq.bind(this)}></div>
             </div>
         )
     }

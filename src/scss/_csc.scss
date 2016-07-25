@@ -2,18 +2,18 @@
 @import "base";
 
 .csc-view {
-
-    header {
+    margin: pxToRem(80) auto pxToRem(100);
+    padding-top: pxToRem(20);
+    .csc-header {
         height: pxToRem(170);
         display: -webkit-box;
-        margin: pxToRem(20) auto;
+        margin: 0 auto pxToRem(20);
         background: $back-color;
-        border: 1px solid $line-color;
+        border: pxToRem(1) solid $line-color;
 
         .row {
             width: 50%;
-            display: -webkit-box;
-            -webkit-box-align: center;
+            @include box();
         }
 
         h3 {
@@ -64,8 +64,9 @@
     }
 
     .tab {
-        display: -webkit-box;
-        -webkit-box-align: center;
+        @include box();
+        //display: -webkit-box;
+        //-webkit-box-align: center;
         height: pxToRem(80);
         border-bottom: 1px solid $line-color;
 

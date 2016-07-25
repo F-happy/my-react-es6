@@ -3,12 +3,12 @@
  */
 'use strict';
 import React from 'react';
-import utils from '../utils/Utils';
+import Utils from '../utils/Utils';
 
 export default class Rules extends React.Component {
     constructor(props) {
         super(props);
-        this.isDuoBao = utils.isDuoBao();
+        this.isDuoBao = Utils.isDuoBao();
         this.calLink = 'http://tool.panxiecan.cn/';
         this.openLink = 'http://caipiao.163.com/t/award/cqssc/';
     }

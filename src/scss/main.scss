@@ -6,7 +6,7 @@
 @import "caldetail";
 @import "pay";
 @import "help";
-@import "rules";
+//@import "rules";
 @import "about";
 @import "server";
 @import "certification";
@@ -19,9 +19,16 @@
 @import "share";
 @import "publish";
 @import "me";
+@import "diglog";
+@import "shopcart";
 
 body {
-    background: $back-color;
+    //background: $back-color;
+    font-family: duobao;
+}
+
+.native-body {
+    background: $body-back-color;
 }
 
 .duobao-help-back {
@@ -30,9 +37,9 @@ body {
 }
 
 .right-icon {
-    width: pxToRem(15);
-    height: pxToRem(27);
-    @include backgroundImg($icon-right);
+    width: pxToRem(32);
+    height: pxToRem(32);
+    color: $font-color;
 }
 
 .redpack-icon, .money-icon, .luck-icon {
@@ -52,31 +59,15 @@ body {
     @include backgroundImg($icon-luck);
 }
 
-.record-icon,
-.gift-list-icon,
-.share-list-icon,
-.addr-list-icon,
-.code-list-icon {
+.me-icon {
     width: pxToRem(41);
     height: pxToRem(41);
+    font-size: pxToRem(42);
+    color: $font-color;
 }
 
-.record-icon {
-    @include backgroundImg($icon-record);
-}
-
-.gift-list-icon {
-    @include backgroundImg($icon-gift);
-}
-
-.share-list-icon {
-    @include backgroundImg($icon-share);
-}
-
-.addr-list-icon {
-    @include backgroundImg($icon-addr);
-}
-
-.code-list-icon {
-    @include backgroundImg($icon-qcode);
+.you-love-icon {
+    width: pxToRem(37);
+    height: pxToRem(37);
+    @include backgroundImg($icon-like);
 }

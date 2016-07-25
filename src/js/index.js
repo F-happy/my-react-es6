@@ -7,8 +7,9 @@
 "use strict";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
+import Iframe from './components/iframe';
 import DetailInfo from './views/detailinfo';
 import Caldetail from './views/caldetail';
 import payResult from './views/payresult';
@@ -25,6 +26,7 @@ import Index from './views/index';
 import ShareView from './views/shareview';
 import Published from './views/published';
 import Me from './views/me';
+import ShopCart from './views/shopcart';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -32,6 +34,7 @@ require("../index.html");
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/">
+            <IndexRoute component={Index}/>
             <Route path="/home" component={Index}/>
             <Route path="/detailinfo/:id" component={DetailInfo}/>
             <Route path="/caldetail" component={Caldetail}/>
@@ -48,6 +51,8 @@ ReactDOM.render((
             <Route path="/shareview" component={ShareView}/>
             <Route path="/published" component={Published}/>
             <Route path="/me" component={Me}/>
+            <Route path="/shopcart" component={ShopCart}/>
+            <Route path="/iframe/:frame" component={Iframe}/>
         </Route>
     </Router>
 ), document.getElementById('client'));

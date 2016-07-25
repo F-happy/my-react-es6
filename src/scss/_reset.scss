@@ -39,8 +39,12 @@ body {
     //clear click shadow in ios
     -webkit-tap-highlight-color:rgba(255,255,255,0);
 }
-icon {
+i {
     display: inline-block;
+    font-style: normal;
+}
+button {
+    border: none;
 }
 /**
  *  移动设备常用mediaQuery
