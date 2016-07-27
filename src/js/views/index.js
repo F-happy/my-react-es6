@@ -108,7 +108,7 @@ class GoodList extends React.Component {
         this.props.goodLists.forEach((value, index)=> {
             _goodList.push(
                 <section className="good" key={index}>
-                    <Link to={'/detailinfo/' + value.sid}>
+                    <Link to={'/goodsinfo/' + value.sid}>
                         <img className="good-icon" src={value.icon} alt={value.description}/>
                         <h2 className="good-title">{value.title}</h2>
                         <div className="good-content">

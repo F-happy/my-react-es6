@@ -27,6 +27,7 @@ import ShareView from './views/shareview';
 import Published from './views/published';
 import Me from './views/me';
 import ShopCart from './views/shopcart';
+import GoodsInfo from './views/goodsinfo';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -37,7 +38,7 @@ ReactDOM.render((
             <IndexRoute component={Index}/>
             <Route path="/home" component={Index}/>
             <Route path="/detailinfo/:id" component={DetailInfo}/>
-            <Route path="/caldetail" component={Caldetail}/>
+            <Route path="/caldetail/:sid" component={Caldetail}/>
             <Route path="/payresult" component={payResult}/>
             <Route path="/duobaohelp" component={duoBaoHelp}/>
             <Route path="/rules" component={Rules}/>
@@ -53,6 +54,7 @@ ReactDOM.render((
             <Route path="/me" component={Me}/>
             <Route path="/shopcart" component={ShopCart}/>
             <Route path="/iframe/:frame" component={Iframe}/>
+            <Route path="/goodsinfo/:sid" component={GoodsInfo}/>
         </Route>
     </Router>
-), document.getElementById('client'));
+), document.getElementById('duobao'));

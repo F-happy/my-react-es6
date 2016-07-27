@@ -2,9 +2,12 @@
 @import "base";
 
 .caldetail-view {
-    header {
+    margin-top: pxToRem(80);
+    //margin-bottom: pxToRem(100);
+    .caldetail-header {
         width: pxToRem(560);
-        margin: pxToRem(30) auto pxToRem(40);
+        padding-top: pxToRem(30);
+        margin: 0 auto pxToRem(40);
         color: $font-text-color;
         font-size: pxToRem(26);
         .head-result {
@@ -206,13 +209,5 @@
         text-align: center;
         font-size: pxToRem(30);
         color: $main-color;
-    }
-
-    #announcement {
-        display: none;
-        width: pxToRem(582);
-        height: pxToRem(291);
-        margin: pxToRem(10) auto 0;
-        @include backgroundImg($newYearBack);
     }
 }

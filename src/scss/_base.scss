@@ -1,5 +1,4 @@
 @charset "utf-8";
-// 这个文件是新建项目时默认引用的css样式文件，所有活动页面的字体单位全部使用rem
 //背景图片处理
 @mixin backgroundImg($value) {
     background: $value no-repeat;
@@ -61,8 +60,6 @@ $progress-color: #ccc;
 
 $add-shop: url(../images/add-shop.png);
 
-$newYearBack: url(../images/assistor.png);
-
 $help-bg: url(../images/help-bg.png);
 $help-header-img: url(../images/help-pic.png);
 $add-qq: url(../images/add-qq.png);
@@ -97,3 +94,5 @@ $icon-friend: url(../images/firend-icon.png);
 $icon-invited: url(../images/invited-header.png);
 $icon-like: url(../images/like-icon.png);
 $icon-shop-cart: url(../images/shop-cart-icon.png);
+
+$winnerImg: url(../images/pic_winner.png);

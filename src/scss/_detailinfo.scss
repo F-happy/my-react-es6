@@ -2,6 +2,7 @@
 @import "base";
 
 .detail-view {
+    margin-top: pxToRem(80);
     img {
         display:inherit;
         width: 100%;
@@ -29,9 +30,7 @@
             color: $back-color;
             font-size: pxToRem(30);
             background-color: $btn-back-color;
-            border: none;
-            -webkit-border-radius: pxToRem(5);
-            border-radius: pxToRem(5);
+            @include border-radius(pxToRem(5));
         }
     }
 
