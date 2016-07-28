@@ -60,7 +60,7 @@ export default class GoodInfo extends React.Component {
                             </ul>
                             <div className="rewards-results">
                                 中奖号码: <span className="rewards-special">{data.prize.code}</span>
-                                <a className="rewards-down">计算详情></a>
+                                <Link to={`/caldetail/${data.sid}`} className="rewards-down">计算详情></Link>
                             </div>
                         </div>
                     </div>

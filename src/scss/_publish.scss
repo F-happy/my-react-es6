@@ -30,12 +30,10 @@
                 display: -webkit-box;
             }
             .time-icon {
-                width: pxToRem(26);
-                height: pxToRem(26);
                 margin: 0 pxToRem(10) 0 pxToRem(15);
-                @include backgroundImg($publish-time);
             }
             .time-now {
+                padding-top: pxToRem(4);
                 font-size: pxToRem(40);
             }
             .time-text {

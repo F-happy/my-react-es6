@@ -7,7 +7,7 @@ import {Link} from 'react-router';
 import API from '../utils/API';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
-import ReactSwipe from '../components/Swipe';
+import ReactSwipe from '../components/swipe';
 
 export default class Index extends React.Component {
     constructor(props) {
@@ -122,7 +122,7 @@ class GoodList extends React.Component {
                             </p>
                         </div>
                     </Link>
-                    <i className="icon-add-shop"/>
+                    <button className="icon-add-shop">&#xe622;</button>
                 </section>
             )
         });

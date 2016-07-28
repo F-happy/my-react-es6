@@ -45,9 +45,9 @@ module.exports = (options)=> {
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
         },
         {
-            // 图片过滤器会将小于8k的文件直接以data数据的形式写在样式中, 而其他的文件才会正常引入
+            // 图片过滤器会将小于4k的文件直接以data数据的形式写在样式中, 而其他的文件才会正常引入
             test: /\.(jpg|png)$/,
-            loader: 'url-loader?limit=8192&name=' + outPath.root + outPath.image + '[name].[ext]'
+            loader: 'url-loader?limit=4096&name=' + outPath.root + outPath.image + '[name].[ext]'
         },
         {
             test: /\.woff$/,
@@ -67,8 +67,7 @@ module.exports = (options)=> {
         ),
 
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin()];
+        new webpack.optimize.OccurrenceOrderPlugin()];
 
     // 判断如果当前需要进行编译则添加替换CDN地址的过滤器
     if (options.build) {
@@ -82,14 +81,18 @@ module.exports = (options)=> {
                 ]
             }
         });
-    } else {
         // react的编译插件, 这样在打包的时候就是引入的react.min
         _plugins.push(
             new webpack.DefinePlugin({
                 "process.env": {
                     NODE_ENV: JSON.stringify("production")
                 }
-            }))
+            }));
+        _plugins.push(
+            new webpack.optimize.UglifyJsPlugin({
+                output: {comments: false}
+            })
+        )
     }
 
     return {

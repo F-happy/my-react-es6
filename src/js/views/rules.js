@@ -3,30 +3,20 @@
  */
 'use strict';
 import React from 'react';
-import Utils from '../utils/Utils';
 
 export default class Rules extends React.Component {
     constructor(props) {
         super(props);
-        this.isDuoBao = Utils.isDuoBao();
         this.calLink = 'http://tool.panxiecan.cn/';
         this.openLink = 'http://caipiao.163.com/t/award/cqssc/';
     }
 
-    look(){
-        if(this.isDuoBao){
-            window.location = 'duobao://native/open?type=0&link=' + window.encodeURIComponent(this.openLink);
-        } else {
-            window.location = this.openLink;
-        }
+    look() {
+        window.location = this.openLink;
     }
 
-    calculate(){
-        if(this.isDuoBao){
-            window.location = 'duobao://native/open?type=0&link=' + window.encodeURIComponent(this.calLink);
-        } else {
-            window.location = this.calLink;
-        }
+    calculate() {
+        window.location = this.calLink;
     }
 
     render() {

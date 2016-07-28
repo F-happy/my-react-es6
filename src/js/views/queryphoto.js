@@ -18,10 +18,6 @@ export default class QueryPhoto extends React.Component {
         };
     }
 
-    addServer() {
-        location.href = 'http://shang.qq.com/wpa/qunwpa?idkey=17c3198213b3143c197e616f82402dd42052dc2dbbf4aaa6615a811890a95eb0';
-    }
-
     componentDidMount() {
         if (!!this.state.token && this.state.isDuoBao) {
             this.addList();
@@ -152,7 +148,7 @@ export default class QueryPhoto extends React.Component {
                         {this.state.cardPages}
                         <button className="add-more" onClick={this.addList.bind(this)}>加载更多</button>
                     </article>;
-        let btn = <section className="btn" onClick={this.addServer.bind(this)}/>;
+        let btn = <section className="btn" onClick={utils.addQQ.bind(this)}/>;
         let errorPage = <section className="no-tel">
                             <div className="no-img"></div>
                             <p className="no-text">暂无充值信息~~</p>

@@ -9,7 +9,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
-import Iframe from './components/iframe';
+import IFrame from './components/iframe';
 import DetailInfo from './views/detailinfo';
 import Caldetail from './views/caldetail';
 import payResult from './views/payresult';
@@ -17,7 +17,6 @@ import duoBaoHelp from './views/duobaohelp';
 import Rules from './views/rules';
 import About from './views/settingAbout';
 import ServerText from './views/settingServer';
-import Certification from './views/certification';
 import ClientHelp from './views/clienthelp';
 import CSC from './views/csc';
 import queryPhoto from './views/queryphoto';
@@ -44,7 +43,6 @@ ReactDOM.render((
             <Route path="/rules" component={Rules}/>
             <Route path="/settings/about" component={About}/>
             <Route path="/settings/server" component={ServerText}/>
-            <Route path="/certification" component={Certification}/>
             <Route path="/clienthelp" component={ClientHelp}/>
             <Route path="/csc" component={CSC}/>
             <Route path="/queryphoto" component={queryPhoto}/>
@@ -53,8 +51,23 @@ ReactDOM.render((
             <Route path="/published" component={Published}/>
             <Route path="/me" component={Me}/>
             <Route path="/shopcart" component={ShopCart}/>
-            <Route path="/iframe/:frame" component={Iframe}/>
+            <Route path="/iframe/:frame" component={IFrame}/>
             <Route path="/goodsinfo/:sid" component={GoodsInfo}/>
         </Route>
     </Router>
 ), document.getElementById('duobao'));
+
+(function (window) {
+    var lastTime = 0;
+    window.requestAnimationFrame = window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        function (callback) {
+            var currTime   = new Date().getTime(),
+                timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+                id         = setTimeout(function () {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+})(window);

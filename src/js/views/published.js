@@ -6,6 +6,7 @@ import React from 'react';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import API from '../utils/API';
+import countdown from '../utils/countdown';
 
 export default class Published extends React.Component {
     constructor(props) {
@@ -13,6 +14,8 @@ export default class Published extends React.Component {
         this.state = {
             domList: []
         };
+        this.times = 0;
+        this.timeLock = true;
     }
 
     componentDidMount() {
@@ -22,26 +25,36 @@ export default class Published extends React.Component {
         });
     }
 
+    componentDidUpdate(){
+        if (this.timeLock){
+            this.timeLock = false;
+            countdown.timeAnimation(this.times, ()=>{
+                console.log('over');
+            });
+        }
+    }
+
     createDom(list) {
         let _domList = [];
         list.forEach((v, index)=> {
             if (v.type == 1) {
+                this.times = v.time;
                 _domList.push(
-                    <section className="publish-body">
+                    <section className="publish-body" key={index}>
                         <img className="good-img" src={v.icon}/>
                         <div className="good-info">
                             <div className="good-title">{v.title}</div>
                             <div className="good-money">商品价值: ￥{v.total}</div>
                             <div className="times">
-                                <i className="time-icon"/>
-                                <span className="time-text">正在揭晓</span><span className="time-now">{v.time}</span>
+                                <i className="time-icon">&#xe620;</i>
+                                <span className="time-text">正在揭晓</span><span className="time-now" id="time1">{v.time}</span>
                             </div>
                         </div>
                     </section>
                 );
             } else if (v.type == 2) {
                 _domList.push(
-                    <section className="publish-body">
+                    <section className="publish-body" key={index}>
                         <img className="good-img" src={v.icon}/>
                         <div className="good-info">
                             <div className="good-title">{v.title}</div>
@@ -52,7 +65,7 @@ export default class Published extends React.Component {
                 );
             } else if (v.type == 3) {
                 _domList.push(
-                    <section className="publish-body">
+                    <section className="publish-body" key={index}>
                         <img className="good-img" src={v.icon}/>
                         <div className="user-info">
                             <div className="user-name">获奖者: <span className="console-color">{v.user_name}</span></div>

@@ -27,10 +27,8 @@
     }
 }
 
-#slider {
-    .banner-img {
-        width: pxToRem(640);
-    }
+.banner-img {
+    width: pxToRem(640);
 }
 
 .controller-list {

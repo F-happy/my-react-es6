@@ -5,7 +5,6 @@
 import React from 'react';
 import DBheader from '../components/header';
 import utils from '../utils/Utils';
-import AddQQ from '../utils/addQQ';
 
 export default class CSC extends React.Component {
     constructor(props) {
@@ -85,7 +84,7 @@ export default class CSC extends React.Component {
     render() {
         return (
             <div className="csc-view">
-                <DBheader title="客服中心" link="home"/>
+                <DBheader title="客服中心" goBack={true}/>
                 <ul className="csc-header">
                     <li className="row" onTouchStart={this.queryCard.bind(this)}>
                         <div className="card img"></div>
@@ -149,7 +148,7 @@ export default class CSC extends React.Component {
                     <div id="t9" className="text">购买后得不到夺宝号可以查看一下-“我”的页面-“夺宝币”。付款失败系统会自动退还夺宝币给您，您可核对您的夺宝币的余额检查确认。</div>
                     <div id="t0" className="text">请联系在线客服解决。</div>
                 </ul>
-                <div className="add-qq" onClick={AddQQ.addqq.bind(this)}></div>
+                <div className="add-qq" onClick={utils.addQQ.bind(this)}></div>
             </div>
         )
     }

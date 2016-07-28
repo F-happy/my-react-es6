@@ -4,7 +4,6 @@
 'use strict';
 import React from 'react';
 import utils from '../utils/Utils';
-import AddQQ from '../utils/addQQ';
 
 export default class duoBaoHelp extends React.Component {
     constructor(props) {
@@ -14,7 +13,7 @@ export default class duoBaoHelp extends React.Component {
     }
 
     addqq(){
-        AddQQ.addqq();
+        utils.addQQ();
     }
 
     render() {

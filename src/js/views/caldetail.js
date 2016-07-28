@@ -25,88 +25,64 @@ export default class Caldetail extends React.Component {
         API.get('caldetail/info', {sid: sid}, (data)=> {
             if (data.status == 1) {
                 let salesList = data.d.sales;
-
-                //特殊活动编码 0: 表示正常| 1: 春节老时时彩不开奖
-                if (data.d.special_action_code == 1) {
-                    this.setState({
-                        numB: '00000',
-                        query: '"老时时彩" 官方公告',
-                        results: '计算结果：' + salesList.code
-                    });
-                    document.querySelector('#announcement').style.display = 'block';
-                    document.querySelector('.result-state').style.display = 'none';
-                } else {
-                    //根据status值进行状态判断
-                    switch (salesList.status) {
-                        case 0:
-                            this.setState({
-                                numB: salesList.codeb + '(第' + salesList.lottery_period + '期)',
-                                results: '计算结果：' + salesList.code
-                            });
-                            break;
-                        case 2:
-                            this.setState({
-                                numB: '等待开奖(第' + salesList.lottery_period + '期)',
-                                results: '计算结果：等待揭晓'
-                            });
-                            break;
-                        case -2:
-                            this.setState({
-                                numB: '等待开奖(第' + salesList.lottery_period + '期)',
-                                results: '计算结果：等待揭晓'
-                            });
-                            break;
-                        default :
-                            return;
-                    }
+                //根据status值进行状态判断
+                switch (salesList.status) {
+                    case 0:
+                        this.setState({
+                            numB: salesList.codeb + '(第' + salesList.lottery_period + '期)',
+                            results: '计算结果：' + salesList.code
+                        });
+                        break;
+                    case 2:
+                        this.setState({
+                            numB: '等待开奖(第' + salesList.lottery_period + '期)',
+                            results: '计算结果：等待揭晓'
+                        });
+                        break;
+                    case -2:
+                        this.setState({
+                            numB: '等待开奖(第' + salesList.lottery_period + '期)',
+                            results: '计算结果：等待揭晓'
+                        });
+                        break;
+                    default :
+                        return;
                 }
                 this.setState({
                     href: data.d.query_url,
                     numA: salesList.codea
                 });
+            }
 
-                if (data.d.purs.length > 0) {
-                    let pur = [];
-                    data.d.purs.forEach((v, index)=> {
-                        pur.push(
-                            <p className="list" key={index}>
-                                <span className="times">{v.time}
-                                    <span className="num">→{v.number}</span>
-                                </span>
-                                <span className="user-name">{v.username}</span>
-                            </p>
-                        )
-                    });
-                    this.setState({
-                        purList: pur
-                    });
-                    let open = document.querySelector('#open');
-                    open.addEventListener('click', ()=> {
-                        let users = document.querySelector('.users');
-                        if (open.className == 'pre') {
-                            users.style.display = 'block';
-                            open.className = 'pre-rotating';
-                        } else {
-                            users.style.display = 'none';
-                            open.className = 'pre';
-                        }
-                    });
-                }
+            if (data.d.purs.length > 0) {
+                let pur = [];
+                data.d.purs.forEach((v, index)=> {
+                    pur.push(
+                        <p className="list" key={index}>
+                            <span className="times">{v.time}
+                                <span className="num">→{v.number}</span>
+                            </span>
+                            <span className="user-name">{v.username}</span>
+                        </p>
+                    )
+                });
+                this.setState({
+                    purList: pur
+                });
             } else {
-                document.querySelector('#open').className = 'pre-bad';
-                document.querySelector('#query').className = 'query-bad';
+                this.refs.open.className = 'pre-bad';
+                this.refs.query.className = 'query-bad';
             }
         });
     }
 
     handleOpenPre() {
-        let users = document.querySelector('.users');
-        if (open.className == 'pre') {
-            users.style.display = 'block';
-            open.className = 'pre-rotating';
+        if (this.refs.open.className == 'pre') {
+            this.refs.userList.style.display = 'block';
+            this.refs.open.className = 'pre-rotating';
         } else {
-            users.style.display = 'none';
-            open.className = 'pre';
+            this.refs.userList.style.display = 'none';
+            this.refs.open.className = 'pre';
         }
     }
 
@@ -134,10 +110,10 @@ export default class Caldetail extends React.Component {
                     <div className="number">
                         <span className="symbol">=</span>
                         <p className="text-result">{this.state.numA}</p>
-                        <span className="pre" id="open"/>
+                        <span className="pre" ref="open" onClick={this.handleOpenPre.bind(this)}/>
                     </div>
                 </section>
-                <section className="users">
+                <section ref="userList" className="users">
                     <div className="users-title">
                         <span className="join-time">参与时间</span>
                         <span className="fr">用户</span>
@@ -153,7 +129,7 @@ export default class Caldetail extends React.Component {
                     <div className="number">
                         <span className="symbol">=</span>
                         <p className="text-result-b">{this.state.numB}</p>
-                        <a className="query" href={this.state.href}>{this.state.query}</a>
+                        <a className="query" ref="query" href={this.state.href}>{this.state.query}</a>
                     </div>
                 </section>
                 <section className="results">{this.state.results}</section>
