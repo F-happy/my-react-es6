@@ -4,6 +4,7 @@
  */
 'use strict';
 import React from 'react';
+import {Link} from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import API from '../utils/API';
@@ -17,7 +18,6 @@ export default class ShareView extends React.Component {
     }
 
     componentDidMount() {
-        // document.querySelector('html').style.background = '#eee';
         API.get('share_goods', '', (data)=> {
             this.setState({
                 'shareList': data.share_lists
@@ -50,7 +50,7 @@ export default class ShareView extends React.Component {
             shares.push(<div className="share-footer" key={index + 999}>
                 <div className="add-luck">攒运气({v.luck_num})</div>
                 <div className="line"></div>
-                <div className="join-goods" data-sid={v.sid}>我也要中></div>
+                <Link className="join-goods" to={`/goodsinfo/${v.sid}`}>我也要中></Link>
             </div>);
         });
         return (

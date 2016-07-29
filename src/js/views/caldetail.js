@@ -89,7 +89,7 @@ export default class Caldetail extends React.Component {
     render() {
         return (
             <div className="caldetail-view">
-                <DBheader title="计算详情" goBack={true}/>
+                <DBheader title="计算详情" left={'goBack'}/>
                 <header className="caldetail-header">
                     <div className="head-result">幸运<br/>号码</div>
                     <span className="symbol"> = </span>

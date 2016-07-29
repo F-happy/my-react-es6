@@ -11,16 +11,28 @@ export default class Me extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            qcode: false,
+            qCode: false,
             invite: false
         };
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+    }
 
-    handleInvitedHidden(msg){
-        if (msg == 'hidden'){
+    handleInvitedHidden(msg) {
+        if (msg == 'hidden') {
             this.setState({invite: false})
+        }
+    }
+
+    handleCodeHidden(msg) {
+        switch (msg) {
+            case 'qcode':
+                let nowCode = this.state.qCode;
+                this.setState({qCode: !nowCode});
+                break;
+            case 'addr':
+                break;
         }
     }
 
@@ -30,8 +42,8 @@ export default class Me extends React.Component {
                 <DBheader title="我"/>
                 <UserInfo/>
                 <RecordList/>
-                <OtherList/>
-                {this.state.qcode ? <CodeDigLog/> : ''}
+                <OtherList handleHidden={this.handleCodeHidden.bind(this)}/>
+                {this.state.qCode ? <CodeDigLog handleHidden={this.handleCodeHidden.bind(this)}/> : ''}
                 {this.state.invite ? <InvitedDigLog handleInvited={this.handleInvitedHidden.bind(this)}/> : ''}
                 <DBFooter act="me"/>
             </div>
@@ -115,6 +127,10 @@ class OtherList extends React.Component {
         this.state = {};
     }
 
+    handleCodeShow() {
+        this.props.handleHidden('qcode');
+    }
+
     render() {
         return (
             <ul className="other-list">
@@ -123,7 +139,7 @@ class OtherList extends React.Component {
                     <span className="list-content">我的收货地址</span>
                     <i className="right-icon">&#xe607;</i>
                 </li>
-                <li>
+                <li onClick={this.handleCodeShow.bind(this)}>
                     <i className="me-icon">&#xe60c;</i>
                     <span className="list-content">二维码分享</span>
                     <i className="right-icon">&#xe607;</i>
@@ -136,14 +152,17 @@ class OtherList extends React.Component {
 class CodeDigLog extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+    }
+
+    handleCodeShow() {
+        this.props.handleHidden('qcode');
     }
 
     render() {
         return (
             <article className="dig-log">
                 <section className="qcode-alert-box">
-                    <i className="close-icon">&#xe601;</i>
+                    <i className="close-icon" onClick={this.handleCodeShow.bind(this)}>&#xe601;</i>
                     <div className="qcode-title">分享许愿夺宝给更多好友</div>
                     <div className="qcode-share"></div>
                     <div className="code-footer">
@@ -170,13 +189,14 @@ class InvitedDigLog extends React.Component {
         };
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+    }
 
-    hiddenBody(){
+    hiddenBody() {
         this.props.handleInvited('hidden');
     }
 
-    render (){
+    render() {
         return (
             <article className="dig-log">
                 <section className="invited-alert-box">

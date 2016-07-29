@@ -10,18 +10,26 @@ export default class DBheader extends React.Component {
         super(props);
         this.state = {
             title: '许愿夺宝',
-            goBack: false,
-            right: false
+            right: false,
+            leftBtn: ''
         }
     }
 
     componentDidMount() {
         let _title = this.props.title;
+        let leftBtn = '';
+        switch (this.props.left) {
+            case 'goBack':
+                leftBtn = 'goBack';
+                break;
+            case 'setting':
+                break;
+            default:
+                break
+        }
+        this.setState({leftBtn: leftBtn});
         if (!!_title) {
             this.setState({title: _title});
-        }
-        if (this.props.goBack) {
-            this.setState({goBack: true});
         }
     }
 
@@ -30,11 +38,11 @@ export default class DBheader extends React.Component {
     }
 
     render() {
-        let left  = <div className="header-left" onClick={this.handleBack.bind(this)}>&#xe605;</div>,
-            right = <Link to={`/${this.state.right}`} className="header-right">&#xe605;</Link>;
+        let goBackBtn = <div className="header-left" onClick={this.handleBack.bind(this)}>&#xe605;</div>,
+            right     = <Link to={`/${this.state.right}`} className="header-right">&#xe605;</Link>;
         return (
             <header className="index-header">
-                {(this.state.goBack) ? left : <div className="header-left"></div>}
+                {(this.state.leftBtn == 'goBack') ? goBackBtn : <div className="header-left"></div>}
                 <div>{this.state.title}</div>
                 {(this.state.right) ? right : <div className="header-right"></div>}
             </header>

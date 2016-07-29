@@ -49,7 +49,7 @@ export default class DetailInfo extends React.Component {
         let imagePage = images.length > 0 ? images : errorPage;
         return (
             <div className="detail-view">
-                <DBheader title="图文详情" goBack={true}/>
+                <DBheader title="图文详情" left={'goBack'}/>
                 {imagePage}
             </div>
         );

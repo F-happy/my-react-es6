@@ -28,7 +28,7 @@ export default class iFrame extends React.Component {
     render() {
         return (
             <article style={{marginTop: '2.5rem'}}>
-                <DBheader title={this.state.title} link="home"/>
+                <DBheader title={this.state.title} goBack={true}/>
                 <iframe src={this.state.src} frameborder="0"
                         style={{padding: 0, width: '100%', height: '1000px', border: 'none'}}></iframe>
             </article>

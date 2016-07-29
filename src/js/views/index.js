@@ -14,14 +14,16 @@ export default class Index extends React.Component {
         super(props);
         this.state = {
             goodLists: [],
-            bannersLists: []
+            bannersLists: [],
+            active: 0,
+            items: ['最热', '最快', '最新', '高价', '低价']
         };
     }
 
     componentDidMount() {
         document.querySelector('html').style.background = '#fff';
         this.loadBanners();
-        this.loadGoodInfo();
+        this.loadGoodInfo(this.state.active);
     }
 
     loadBanners() {
@@ -32,12 +34,17 @@ export default class Index extends React.Component {
         });
     }
 
-    loadGoodInfo() {
-        API.get('goods', '', (data)=> {
+    loadGoodInfo(type) {
+        API.get('goods', {type: type}, (data)=> {
             this.setState({
                 'goodLists': data.good_lists
             });
         });
+    }
+
+    handleSwitch(index) {
+        this.setState({active: index});
+        this.loadGoodInfo(this.state.active);
     }
 
     render() {
@@ -46,10 +53,10 @@ export default class Index extends React.Component {
                 <DBheader/>
                 <Banner bannerLists={this.state.bannersLists}/>
                 <section className="controller-list">
-                    <div className="box">
+                    <Link to="/pkview" className="box">
                         <div className="controller-img pk-img"></div>
                         <p className="controller-title">PK专区</p>
-                    </div>
+                    </Link>
                     <Link to="/csc" className="box">
                         <div className="controller-img about-img"></div>
                         <p className="controller-title">客服中心</p>
@@ -64,11 +71,13 @@ export default class Index extends React.Component {
                     </div>
                 </section>
                 <ul className="rank-controller">
-                    <li className="rank-result active">最热</li>
-                    <li className="rank-result">最快</li>
-                    <li className="rank-result">最新</li>
-                    <li className="rank-result">高价</li>
-                    <li className="rank-result">低价</li>
+                    {
+                        this.state.items.map((v, index)=> {
+                            return <li className={`rank-result${(this.state.active == index) ? ' active' : ''}`}
+                                       key={index}
+                                       onClick={this.handleSwitch.bind(this, index)}>{v}</li>
+                        })
+                    }
                 </ul>
                 <GoodList goodLists={this.state.goodLists}/>
                 <DBFooter/>

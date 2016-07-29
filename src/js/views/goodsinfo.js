@@ -110,7 +110,7 @@ export default class GoodInfo extends React.Component {
     render() {
         return (
             <article className="good-info-view">
-                <DBheader title="商品详情" goBack={true}/>
+                <DBheader title="商品详情" left={'goBack'}/>
                 <section className="good-info-header">
                     <Link to={'/detailinfo/' + this.state.gid}>
                         <img className="good-info-img" src={this.state.goodImg}/>
