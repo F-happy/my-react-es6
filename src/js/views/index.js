@@ -5,9 +5,11 @@
 import React from 'react';
 import {Link} from 'react-router';
 import API from '../utils/API';
+import util from '../utils/Utils';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import ReactSwipe from '../components/swipe';
+import toast from '../components/toast';
 
 export default class Index extends React.Component {
     constructor(props) {
@@ -112,6 +114,14 @@ class GoodList extends React.Component {
         super(props);
     }
 
+    handleAddShopCart(sid) {
+        if (util.addShopCart(sid, 5)) {
+            toast.print('添加购物车成功!');
+        } else {
+            toast.print('添加购物车失败!');
+        }
+    }
+
     render() {
         let _goodList = [];
         this.props.goodLists.forEach((value, index)=> {
@@ -131,7 +141,7 @@ class GoodList extends React.Component {
                             </p>
                         </div>
                     </Link>
-                    <button className="icon-add-shop">&#xe622;</button>
+                    <button className="icon-add-shop" onClick={this.handleAddShopCart.bind(this, value.sid)}>&#xe622;</button>
                 </section>
             )
         });

@@ -6,7 +6,7 @@
     margin-bottom: pxToRem(100);
 
     .none-shop {
-        padding-top: pxToRem(80);
+        padding-top: pxToRem(140);
         width: 100%;
         height: pxToRem(450);
         background: $body-back-color;
@@ -24,12 +24,14 @@
             color: $font-color;
         }
         .shop-btn {
+            display: block;
+            margin: 0 auto;
             width: pxToRem(250);
             height: pxToRem(64);
+            line-height: pxToRem(64);
             color: $back-color;
             font-size: pxToRem(30);
             background: $btn-back-color;
-            border: none;
             @include border-radius(pxToRem(5));
         }
     }
@@ -66,6 +68,9 @@
         }
         .like-goods {
             @include box();
+            width: pxToRem(600);
+            margin: 0 auto;
+            overflow-x: scroll;
         }
         .like-good {
             margin-right: pxToRem(30);
@@ -76,7 +81,8 @@
             .good-img {
                 width: pxToRem(180);
                 height: pxToRem(180);
-                background: $body-back-color;
+                background: #fff no-repeat center;
+                background-size: 100% 100%;
             }
             .good-name {
                 margin: pxToRem(20) auto pxToRem(10);
@@ -104,6 +110,9 @@
                 }
             }
         }
+    }
+    .shop-lists {
+        padding-bottom: pxToRem(100);
     }
     .shop-good {
         background: $back-color;

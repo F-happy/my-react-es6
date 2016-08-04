@@ -20,7 +20,7 @@ export default class PkView extends React.Component {
     render() {
         return (
             <article className="pk-view">
-                <DBheader title="PK专区" goBack={true}/>
+                <DBheader title="PK专区" left={'goBack'}/>
                 <section className="top-banner">
                     <div className="banner-img"></div>
                     <div className="result">专区规则></div>

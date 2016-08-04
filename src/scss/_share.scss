@@ -56,8 +56,8 @@
             .share-img {
                 width: pxToRem(190);
                 height: pxToRem(190);
-                background-size: contain;
-                background: no-repeat center;
+                background: #fff no-repeat center;
+                background-size: 100% 100%;
             }
         }
     }

@@ -4,11 +4,6 @@
 @import "header";
 @import "detailinfo";
 @import "caldetail";
-@import "pay";
-@import "help";
-@import "about";
-@import "server";
-@import "client_help";
 @import "csc";
 @import "querytel";
 @import "querycard";
@@ -21,6 +16,7 @@
 @import "shopcart";
 @import "goods_info";
 @import "pkview";
+@import "toast";
 
 body {
     //background: $back-color;

@@ -12,12 +12,6 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import IFrame from './components/iframe';
 import DetailInfo from './views/detailinfo';
 import Caldetail from './views/caldetail';
-import payResult from './views/payresult';
-import duoBaoHelp from './views/duobaohelp';
-import Rules from './views/rules';
-import About from './views/settingAbout';
-import ServerText from './views/settingServer';
-import ClientHelp from './views/clienthelp';
 import CSC from './views/csc';
 import queryPhoto from './views/queryphoto';
 import queryJDCards from './views/queryjdCards';
@@ -39,12 +33,6 @@ ReactDOM.render((
             <Route path="/home" component={Index}/>
             <Route path="/detailinfo/:id" component={DetailInfo}/>
             <Route path="/caldetail/:sid" component={Caldetail}/>
-            <Route path="/payresult" component={payResult}/>
-            <Route path="/duobaohelp" component={duoBaoHelp}/>
-            <Route path="/rules" component={Rules}/>
-            <Route path="/settings/about" component={About}/>
-            <Route path="/settings/server" component={ServerText}/>
-            <Route path="/clienthelp" component={ClientHelp}/>
             <Route path="/csc" component={CSC}/>
             <Route path="/queryphoto" component={queryPhoto}/>
             <Route path="/querycards" component={queryJDCards}/>
