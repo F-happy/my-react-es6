@@ -3,6 +3,7 @@
  */
 'use strict';
 import React from 'react';
+import { Link } from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import API from '../utils/API';
@@ -69,11 +70,11 @@ class UserInfo extends React.Component {
                     <i className="right-icon">&#xe607;</i>
                 </div>
                 <div className="user-body">
-                    <div className="user-redpack">
+                    <Link to={'/redpack/'} className="user-redpack">
                         <i className="redpack-icon"/>
                         <p className="user-font">我的红包</p>
                         <p className="text">3个可用</p>
-                    </div>
+                    </Link>
                     <div className="line"></div>
                     <div className="user-money">
                         <i className="money-icon"/>

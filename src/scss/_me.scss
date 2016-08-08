@@ -50,6 +50,7 @@
                 color: $font-color;
             }
             .user-redpack, .user-money, .user-luck-dou {
+                display: block;
                 width: pxToRem(210);
             }
         }

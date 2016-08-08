@@ -3,7 +3,7 @@
  */
 'use strict';
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import API from '../utils/API';
 import util from '../utils/Utils';
 import DBheader from '../components/header';
@@ -141,7 +141,8 @@ class GoodList extends React.Component {
                             </p>
                         </div>
                     </Link>
-                    <button className="icon-add-shop" onClick={this.handleAddShopCart.bind(this, value.sid)}>&#xe622;</button>
+                    <button className="icon-add-shop"
+                            onClick={this.handleAddShopCart.bind(this, value.sid)}>&#xe622;</button>
                 </section>
             )
         });
