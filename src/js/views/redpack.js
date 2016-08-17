@@ -80,7 +80,7 @@ export default class RedPack extends React.Component {
         let viewList = [],
             noneView = <section className="none-box">
                 <div className="none-icon">&#xe625;</div>
-                <h3 className="none-title">什么可使用的红包</h3>
+                <h3 className="none-title">没有可使用的红包</h3>
             </section>;
         if (this.state.active == 0) {
             viewList = (this.state.redList.length > 0) ? this.state.redList : noneView;
@@ -88,7 +88,7 @@ export default class RedPack extends React.Component {
             viewList = (this.state.redListOld.length > 0) ? this.state.redListOld : noneView;
         }
         return (
-            <div className="red-pack-view">
+            <article className="red-pack-view">
                 <DBheader title="我的红包" left={'goBack'}/>
                 <ul className="red-pack-controller">
                     {
@@ -102,7 +102,7 @@ export default class RedPack extends React.Component {
                 <section className="red-pack-lists">
                     {viewList}
                 </section>
-            </div>
+            </article>
         );
     }
 }

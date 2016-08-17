@@ -23,6 +23,7 @@ import ShopCart from './views/shopcart';
 import GoodsInfo from './views/goodsinfo';
 import PkView from './views/pkview';
 import RedPack from './views/redpack';
+import MoneyList from './views/moneylist';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -45,6 +46,7 @@ ReactDOM.render((
             <Route path="/goodsinfo/:sid" component={GoodsInfo}/>
             <Route path="/pkview" component={PkView}/>
             <Route path="/redpack" component={RedPack}/>
+            <Route path="/moneylist" component={MoneyList}/>
         </Route>
     </Router>
 ), document.getElementById('duobao'));
