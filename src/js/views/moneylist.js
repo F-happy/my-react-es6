@@ -25,7 +25,6 @@ export default class MoneyList extends React.Component {
     }
 
     handleSwitch(index) {
-        console.log(index);
         this.setState({active: index});
         if (index == 1) {
             this.loadRestoreList();

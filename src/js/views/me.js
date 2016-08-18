@@ -76,11 +76,11 @@ class UserInfo extends React.Component {
                         <p className="text">3个可用</p>
                     </Link>
                     <div className="line"></div>
-                    <div className="user-money">
+                    <Link to={'/moneylist/'} className="user-money">
                         <i className="money-icon"/>
                         <p className="user-font">许愿币充值</p>
                         <p className="text">余额:<span className="main-color">100</span></p>
-                    </div>
+                    </Link>
                     <div className="line"></div>
                     <div className="user-luck-dou">
                         <i className="luck-icon"/>

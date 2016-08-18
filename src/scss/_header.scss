@@ -6,7 +6,8 @@
     top: 0;
     left: 0;
     @include box(center, justify);
-    width: pxToRem(640);
+    //width: pxToRem(640);
+    width: 100%;
     height: pxToRem(80);
     background: $main-color;
     color: $back-color;

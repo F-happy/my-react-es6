@@ -4,7 +4,7 @@
 'use strict';
 
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import toast from '../components/toast';
@@ -22,10 +22,10 @@ export default class ShopCart extends React.Component {
     }
 
     handleDelete(sid, gid) {
-        if (util.removeShopCart(sid)){
+        if (util.removeShopCart(sid)) {
             toast.print('删除购物车成功!');
             let myCartArry = this.state.myCart;
-            myCartArry = myCartArry.filter((v)=>{
+            myCartArry = myCartArry.filter((v)=> {
                 return v.key != gid;
             });
             this.setState({myCart: myCartArry});
@@ -36,6 +36,10 @@ export default class ShopCart extends React.Component {
 
     componentDidMount() {
         document.querySelector('html').style.background = '#fff';
+        this.loadMyCart();
+    }
+
+    loadMyCart(){
         API.get('shopcat/mycart', '', (data)=> {
             let shopCart = [];
             if (data.length > 0) {
@@ -98,6 +102,7 @@ export default class ShopCart extends React.Component {
     }
 
     goShop() {
+        hashHistory.push('/payview');
     }
 
     render() {
@@ -112,7 +117,7 @@ export default class ShopCart extends React.Component {
                 <article className="add-shop-banner" key={22}>
                     <section className="shop-total">
                         <div>总计: {this.state.total} 夺宝币</div>
-                        <div className="shop-good-num">共{this.state.myCart.length}件商品</div>
+                           <div className="shop-good-num">共{this.state.myCart.length}件商品</div>
                     </section>
                     <button className="go-shop" onClick={this.goShop.bind(this)}>去结算></button>
                 </article>
