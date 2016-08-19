@@ -25,6 +25,8 @@ import PkView from './views/pkview';
 import RedPack from './views/redpack';
 import MoneyList from './views/moneylist';
 import PayView from './views/payview';
+import OldOrderList from './views/oldorderlist';
+import Settings from './views/settings';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -49,6 +51,8 @@ ReactDOM.render((
             <Route path="/redpack" component={RedPack}/>
             <Route path="/moneylist" component={MoneyList}/>
             <Route path="/payview" component={PayView}/>
+            <Route path="/oldorderlist/:gid" component={OldOrderList}/>
+            <Route path="/settings" component={Settings}/>
         </Route>
     </Router>
 ), document.getElementById('duobao'));

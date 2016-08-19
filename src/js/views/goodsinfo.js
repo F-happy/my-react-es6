@@ -114,10 +114,16 @@ export default class GoodInfo extends React.Component {
                 <section className="good-info-header">
                     <Link to={'/detailinfo/' + this.state.gid}>
                         <img className="good-info-img" src={this.state.goodImg}/>
-                        <p className="header-text">下载查看更多商品详情</p>
+                        <p className="header-text">点击查看更多商品详情</p>
                     </Link>
                 </section>
                 {this.state.userInfo}
+                <ul className="list-text">
+                    <Link to={`/oldorderlist/${this.state.gid}`}>
+                        <li><span className="list-content">往期揭晓</span><i className="right-icon">&#xe607;</i></li>
+                    </Link>
+                    <li><span className="list-content">往期晒单</span><i className="right-icon">&#xe607;</i></li>
+                </ul>
                 <UserList userList={this.state.userList}/>
                 <footer className="good-footer">
                     <i className="add-shop">&#xe60b;</i>

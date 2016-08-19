@@ -31,10 +31,10 @@ export default class PayView extends React.Component {
                     </ul>
                 </header>
                 <section className="pay-money">
-                    <div className="pay-redpack">
+                    <Link to={'/redpack/'} className="pay-redpack">
                         <div className="redpack-left"><span>红包抵扣</span><span className="has-redpack">2个可用</span></div>
                         <div className="redpack-right"><span>-5夺宝币</span><i className="right-icon">&#xe607;</i></div>
-                    </div>
+                    </Link>
                     <div className="balance">
                         <div className="balance-left"><span>余额支付</span><span className="have-balance">(余额:<span
                             className="main-color">100</span>)</span></div>

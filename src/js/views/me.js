@@ -40,7 +40,7 @@ export default class Me extends React.Component {
     render() {
         return (
             <div className="me-view">
-                <DBheader title="我"/>
+                <DBheader title="我" right="setting"/>
                 <UserInfo/>
                 <RecordList/>
                 <OtherList handleHidden={this.handleCodeHidden.bind(this)}/>

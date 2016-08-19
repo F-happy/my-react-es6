@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import "base";
 @import "reset";
+@import "components/line_block";
 @import "header";
 @import "detailinfo";
 @import "caldetail";
@@ -20,6 +21,8 @@
 @import "redpack";
 @import "moneylist";
 @import "pay_view";
+@import "old_order_list";
+@import "setting";
 
 body {
     //background: $back-color;

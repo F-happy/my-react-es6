@@ -1,0 +1,44 @@
+@charset "utf-8";
+@import "base";
+
+.old-order-list {
+    margin-top: pxToRem(80);
+    margin-bottom: pxToRem(100);
+
+    .list-header {
+        height: pxToRem(60);
+        line-height: pxToRem(60);
+        font-size: pxToRem(24);
+        padding-left: pxToRem(25);
+        border: {
+            top: pxToRem(1) solid $line-color;
+            bottom: pxToRem(1) solid $line-color;
+        };
+    }
+    .list-body {
+        @include box(center, justify);
+        height: pxToRem(140);
+        padding: 0 pxToRem(25);
+        background: $back-color;
+    }
+    .list-img {
+        width: pxToRem(70);
+        height: pxToRem(70);
+        @include border-radius(50%);
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .user-info {
+        width: 76%;
+        font-size: pxToRem(26);
+        color: $font-text-color;
+        .name {
+            color: $btn-back-color;
+        }
+        .user-number {
+            margin: pxToRem(8) 0;
+        }
+    }
+}

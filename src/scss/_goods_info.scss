@@ -31,6 +31,25 @@
             color: $back-color;
         }
     }
+    .list-text {
+        padding: 0 pxToRem(30);
+        margin-top: pxToRem(70);
+        border: {
+            bottom: pxToRem(2) solid #d4d4d4;
+            top: pxToRem(2) solid #d4d4d4;
+        }
+        background: $back-color;
+        li {
+            @include box(center, justify);
+            height: pxToRem(94);
+            border-bottom: pxToRem(1) solid $line-color;
+            font-size: pxToRem(30);
+            color: $font-color;
+            * {
+                display: -webkit-box;
+            }
+        }
+    }
     .good-info {
         width: pxToRem(640);
         margin: 0 auto;
