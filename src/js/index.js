@@ -27,6 +27,7 @@ import MoneyList from './views/moneylist';
 import PayView from './views/payview';
 import OldOrderList from './views/oldorderlist';
 import Settings from './views/settings';
+import PrizeList from './views/prize_list';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -53,6 +54,7 @@ ReactDOM.render((
             <Route path="/payview" component={PayView}/>
             <Route path="/oldorderlist/:gid" component={OldOrderList}/>
             <Route path="/settings" component={Settings}/>
+            <Route path="/prize_list" component={PrizeList}/>
         </Route>
     </Router>
 ), document.getElementById('duobao'));

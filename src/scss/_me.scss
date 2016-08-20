@@ -66,22 +66,25 @@
     }
     .other-list {
         background: $back-color;
+        font-size: pxToRem(30);
+        color: $title-color;
+        .me-icon {
+            width: pxToRem(41);
+            height: pxToRem(41);
+            font-size: pxToRem(42);
+            color: $font-color;
+        }
     }
     li {
         @include box();
         height: pxToRem(94);
         border-bottom: pxToRem(1) solid $line-color;
-        font-size: pxToRem(30);
-        color: $title-color;
+        * {
+            display: -webkit-box;
+        }
         .list-content {
             width: pxToRem(490);
             margin-left: pxToRem(30);
-        }
-        &:last-child {
-            border-bottom: none;
-        }
-        * {
-            display: -webkit-box;
         }
     }
 }

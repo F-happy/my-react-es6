@@ -2,14 +2,14 @@
 @import "base";
 @import "reset";
 @import "components/line_block";
-@import "header";
+@import "components/header";
+@import "components/footer";
 @import "detailinfo";
 @import "caldetail";
 @import "csc";
 @import "querytel";
 @import "querycard";
 @import "index";
-@import "footer";
 @import "share";
 @import "publish";
 @import "me";
@@ -23,6 +23,7 @@
 @import "pay_view";
 @import "old_order_list";
 @import "setting";
+@import "prize_list";
 
 body {
     //background: $back-color;
@@ -59,13 +60,6 @@ body {
 
 .luck-icon {
     @include backgroundImg($icon-luck);
-}
-
-.me-icon {
-    width: pxToRem(41);
-    height: pxToRem(41);
-    font-size: pxToRem(42);
-    color: $font-color;
 }
 
 .you-love-icon {

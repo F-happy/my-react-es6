@@ -1,17 +1,15 @@
 @charset "utf-8";
-@import "base";
+@import "../base";
 
-.index-footer {
-    display: -webkit-box;
-    -webkit-box-align: center;
-    -webkit-box-pack: justify;
+.footer-components {
+    @include box(center, justify);
     position: fixed;
     left: 0;
     bottom: 0;
     width: pxToRem(560);
     height: pxToRem(100);
     padding: 0 pxToRem(40);
-    border-top: 1px solid $line-color;
+    border-top: pxToRem(1) solid $line-color;
     overflow: hidden;
     background: $back-color;
 

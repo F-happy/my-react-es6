@@ -19,14 +19,14 @@ export default class inlineBlockLink extends React.Component {
         this.setState({
             content: toContent,
             link: toLink,
-            icon: !!icon
+            icon: icon
         });
     }
 
     render() {
         return (
             <Link to={`/${this.state.link}/`} className="inline-block-components">
-                {this.state.icon ? <i className="left-icon">&#xe612;</i> : ''}
+                {this.state.icon ? <i className="left-icon">{this.state.icon}</i> : ''}
                 <span className="list-content">{this.state.content}</span>
                 <i className="right-icon">&#xe607;</i>
             </Link>

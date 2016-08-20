@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import "../base";
+
+.header-components {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include box(center, justify);
+    width: 100%;
+    height: pxToRem(80);
+    background: $main-color;
+    color: $back-color;
+    font-size: pxToRem(36);
+    z-index: 999;
+    font-family: duobao, sans-serif;
+    .header-left {
+        display: -webkit-box;
+        margin-left: pxToRem(20);
+        width: pxToRem(50);
+        height: pxToRem(30);
+    }
+    .header-right {
+        display: -webkit-box;
+        margin-right: pxToRem(20);
+        width: pxToRem(50);
+        height: pxToRem(30);
+    }
+}

@@ -6,6 +6,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
+import LineBlock from '../components/inline_block_link';
 import API from '../utils/API';
 
 export default class Me extends React.Component {
@@ -101,23 +102,11 @@ class RecordList extends React.Component {
 
     render() {
         return (
-            <ul className="record-lists">
-                <li>
-                    <i className="me-icon">&#xe616;</i>
-                    <span className="list-content">许愿记录</span>
-                    <i className="right-icon">&#xe607;</i>
-                </li>
-                <li>
-                    <i className="me-icon">&#xe612;</i>
-                    <span className="list-content">中奖记录</span>
-                    <i className="right-icon">&#xe607;</i>
-                </li>
-                <li>
-                    <i className="me-icon">&#xe61d;</i>
-                    <span className="list-content">晒单记录</span>
-                    <i className="right-icon">&#xe607;</i>
-                </li>
-            </ul>
+            <section className="record-lists">
+                <LineBlock toContent="许愿记录" toLink="prize_list" icon="&#xe616;"/>
+                <LineBlock toContent="中奖记录" toLink="prize_list" icon="&#xe612;"/>
+                <LineBlock toContent="晒单记录" toLink="prize_list" icon="&#xe61d;"/>
+            </section>
         )
     }
 }
@@ -135,11 +124,7 @@ class OtherList extends React.Component {
     render() {
         return (
             <ul className="other-list">
-                <li>
-                    <i className="me-icon">&#xe614;</i>
-                    <span className="list-content">我的收货地址</span>
-                    <i className="right-icon">&#xe607;</i>
-                </li>
+                <LineBlock toContent="我的收货地址" toLink="prize_list" icon="&#xe614;"/>
                 <li onClick={this.handleCodeShow.bind(this)}>
                     <i className="me-icon">&#xe60c;</i>
                     <span className="list-content">二维码分享</span>

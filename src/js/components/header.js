@@ -48,7 +48,7 @@ export default class DBheader extends React.Component {
         let goBackBtn  = <div className="header-left" onClick={this.handleBack.bind(this)}>&#xe605;</div>,
             settingBtn = <Link to={`/settings/`} className="header-right">&#xe61e;</Link>;
         return (
-            <header className="index-header">
+            <header className="header-components">
                 {(this.state.leftBtn == 'goBack') ? goBackBtn : <div className="header-left"></div>}
                 <div>{this.state.title}</div>
                 {(this.state.rightBtn == 'setting') ? settingBtn : <div className="header-right"></div>}

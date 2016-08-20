@@ -59,7 +59,7 @@ export default class DBFooter extends React.Component {
             );
         });
         return (
-            <footer className="index-footer">
+            <footer className="footer-components">
                 {iconDom}
             </footer>
         )

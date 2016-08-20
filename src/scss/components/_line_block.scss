@@ -15,4 +15,11 @@
     .right-icon {
         display: -webkit-box;
     }
+    .left-icon {
+        width: pxToRem(41);
+        height: pxToRem(41);
+        font-size: pxToRem(42);
+        color: $font-color;
+        margin-right: pxToRem(30);
+    }
 }
