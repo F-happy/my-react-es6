@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import "base";
+
+.detail-view {
+    margin-top: pxToRem(80);
+    img {
+        display:inherit;
+        width: 100%;
+        -webkit-touch-callout: none;
+        -webkit-user-select:none;
+        user-select:none;
+    }
+
+    .error {
+        width: 100%;
+        margin: pxToRem(366) auto 0;
+        text-align: center;
+        h1 {
+            font-size: pxToRem(36);
+            color: $title-color;
+        }
+        p {
+            font-size: pxToRem(26);
+            color: $font-color;
+            margin: pxToRem(12) auto pxToRem(37);;
+        }
+        button {
+            width: pxToRem(250);
+            height: pxToRem(65);
+            color: $back-color;
+            font-size: pxToRem(30);
+            background-color: $btn-back-color;
+            @include border-radius(pxToRem(5));
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+@charset "utf-8";
+@import "../base";
+
+.inline-block-components {
+    @include box(center, justify);
+    height: pxToRem(90);
+    padding: 0 pxToRem(25);
+    border-bottom: pxToRem(1) solid $line-color;
+    font-size: pxToRem(30);
+    color: $title-color;
+    background: $back-color;
+    .list-content {
+        width: 76%;
+    }
+    .right-icon {
+        display: -webkit-box;
+    }
+    .left-icon {
+        width: pxToRem(41);
+        height: pxToRem(41);
+        font-size: pxToRem(42);
+        color: $font-color;
+        margin-right: pxToRem(30);
+    }
+}
