@@ -1,12 +1,17 @@
 @charset "utf-8";
-@import "base";
+
 @import "reset";
+@import "images";
+@import "fonts";
+
 @import "components/line_block";
 @import "components/header";
 @import "components/footer";
-@import "detailinfo";
-@import "caldetail";
-@import "csc";
+@import "components/toast";
+
+@import "detail_info";
+@import "cal_detail";
+@import "client_server_core";
 @import "querytel";
 @import "querycard";
 @import "index";
@@ -16,18 +21,25 @@
 @import "diglog";
 @import "shopcart";
 @import "goods_info";
-@import "pkview";
-@import "toast";
-@import "redpack";
-@import "moneylist";
+@import "pk_view";
+@import "red_pack";
+@import "money_list";
 @import "pay_view";
 @import "old_order_list";
 @import "setting";
 @import "prize_list";
+@import "my_info";
 
 body {
     //background: $back-color;
     font-family: duobao;
+}
+
+@at-root .console-color {
+    color: $btn-back-color !important;
+}
+@at-root .main-color {
+    color: $main-color !important;
 }
 
 .native-body {
@@ -37,12 +49,6 @@ body {
 .duobao-help-back {
     background-image: $help-bg;
     background-size: 100% auto;
-}
-
-.right-icon {
-    width: pxToRem(32);
-    height: pxToRem(32);
-    color: $font-color;
 }
 
 .redpack-icon, .money-icon, .luck-icon {

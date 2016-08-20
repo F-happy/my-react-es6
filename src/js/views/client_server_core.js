@@ -84,7 +84,7 @@ export default class CSC extends React.Component {
     render() {
         return (
             <div className="csc-view">
-                <DBheader title="客服中心" goBack={true}/>
+                <DBheader title="客服中心" left={'goBack'}/>
                 <ul className="csc-header">
                     <li className="row" onTouchStart={this.queryCard.bind(this)}>
                         <div className="card img"></div>

@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .money-list-view {
-    margin: pxToRem(80) auto 0;
+    @include clear-header();
 
     .list-header {
         padding-top: pxToRem(40);

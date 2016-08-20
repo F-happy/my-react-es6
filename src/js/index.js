@@ -10,24 +10,26 @@ import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 import IFrame from './components/iframe';
-import DetailInfo from './views/detailinfo';
-import Caldetail from './views/caldetail';
-import CSC from './views/csc';
+import DetailInfo from './views/detail_info';
+import Caldetail from './views/cal_detail';
+import CSC from './views/client_server_core';
 import queryPhoto from './views/queryphoto';
 import queryJDCards from './views/queryjdCards';
 import Index from './views/index';
-import ShareView from './views/shareview';
+import ShareView from './views/share_view';
 import Published from './views/published';
 import Me from './views/me';
 import ShopCart from './views/shopcart';
-import GoodsInfo from './views/goodsinfo';
-import PkView from './views/pkview';
-import RedPack from './views/redpack';
-import MoneyList from './views/moneylist';
-import PayView from './views/payview';
-import OldOrderList from './views/oldorderlist';
+import GoodsInfo from './views/goods_info';
+import PkView from './views/pk_view';
+import RedPack from './views/red_pack';
+import MoneyList from './views/money_list';
+import PayView from './views/pay_view';
+import OldOrderList from './views/old_order_list';
 import Settings from './views/settings';
 import PrizeList from './views/prize_list';
+import MyInfo from './views/my_info';
+import PrizeInfo from './views/prize_info';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -55,6 +57,8 @@ ReactDOM.render((
             <Route path="/oldorderlist/:gid" component={OldOrderList}/>
             <Route path="/settings" component={Settings}/>
             <Route path="/prize_list" component={PrizeList}/>
+            <Route path="/my_info" component={MyInfo}/>
+            <Route path="/prize_info" component={PrizeInfo}/>
         </Route>
     </Router>
 ), document.getElementById('duobao'));

@@ -1,5 +1,8 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
+@import "images";
 
 .dig-log {
     //display: none;

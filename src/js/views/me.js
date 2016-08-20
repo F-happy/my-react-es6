@@ -62,14 +62,14 @@ class UserInfo extends React.Component {
     render() {
         return (
             <section className="user-info">
-                <div className="user-header">
+                <Link to={'/my_info/'} className="user-header">
                     <div className="user-img"><img src="http://dummyimage.com/200x200/4A7BF7"/></div>
                     <div className="user-content">
                         <div className="user-name">哈哈哈哈哈哈</div>
                         <div className="user-id">唯一ID: <span className="console-color">1000548</span></div>
                     </div>
                     <i className="right-icon">&#xe607;</i>
-                </div>
+                </Link>
                 <div className="user-body">
                     <Link to={'/redpack/'} className="user-redpack">
                         <i className="redpack-icon"/>

@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .caldetail-view {
-    margin-top: pxToRem(80);
+    @include clear-header();
     .caldetail-header {
         width: pxToRem(560);
         padding-top: pxToRem(30);
@@ -131,8 +133,12 @@
                     width: pxToRem(20);
                     display: block;
                     border: 2px solid $btn-back-color;
-                    border-right-width: 0;
-                    border-top-width: 0;
+                    //border-right-width: 0;
+                    //border-top-width: 0;
+                    border: {
+                        right-width: 0;
+                        top-width: 0;
+                    }
                     transform: rotate(-45deg);
                     position: absolute;
                     bottom: pxToRem(7);
@@ -192,8 +198,8 @@
             }
             .user-name {
                 width: pxToRem(170);
-                text-overflow:ellipsis;
-                white-space:nowrap;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 overflow: hidden;
                 display: inline-block;
                 float: right;

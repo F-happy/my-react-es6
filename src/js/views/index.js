@@ -52,7 +52,7 @@ export default class Index extends React.Component {
     render() {
         return (
             <div className="index-view">
-                <DBheader/>
+                <DBheader title="许愿夺宝"/>
                 <Banner bannerLists={this.state.bannersLists}/>
                 <section className="controller-list">
                     <Link to="/pkview" className="box">

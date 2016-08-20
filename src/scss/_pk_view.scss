@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .pk-view {
-    margin: pxToRem(80) auto 0;
+    @include clear-header();
     background: $back-color;
     .top-banner {
         padding-top: pxToRem(10);
@@ -77,11 +79,9 @@
             position: absolute;
             bottom: pxToRem(-10);
             right: 0;
-            width: pxToRem(54);
-            height: pxToRem(54);
+            @include border-box(54);
             color: $back-color;
             background: $btn-back-color;
-            @include border-radius(50%);
             font-size: pxToRem(28);
         }
         .join-shop {
