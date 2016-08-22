@@ -15,6 +15,7 @@ export default class PrizeInfo extends React.Component {
 
     componentDidMount() {
         document.querySelector('html').style.background = '#eee';
+        let sid = this.props.params.sid;
     }
 
     render(){
@@ -32,24 +33,28 @@ export default class PrizeInfo extends React.Component {
                         <p className="good-text">揭晓时间: 2015-04-05 13:30</p>
                     </div>
                 </section>
+                {/*<button className="prize-btn-success">确认地址 安排收货</button>*/}
+                {/*<section className="prize-title">确认号码</section>*/}
+                {/*<section className="prize-phone main-color">18642636963</section>*/}
+                {/*<button className="prize-btn-success">确认号码 马上充值</button>*/}
                 <section className="prize-title">物流信息</section>
                 <section className="logistics-info">
                     <div>
-                        <p>物流公司:</p><p>订单号:</p>
+                        <p className="logistics-com">物流公司:</p><p>订单号:</p>
                     </div>
                     <div className="logistics">
-                        <p>京东配送</p><p>18642636963</p>
+                        <p className="logistics-name">京东配送</p><p>18642636963</p>
                     </div>
                     <button className="logistics-btn">物流追踪</button>
                 </section>
                 <section className="prize-title">收货信息</section>
                 <section className="prize-good-info">
                     <div>
-                        <p>收货人:</p><p>联系方式:</p><p>详细地址:</p>
+                        <p>收货人:</p><p className="user-between">联系方式:</p><p>详细地址:</p>
                     </div>
-                    <div>
+                    <div className="user-info">
                         <p className="user-name">付会翔</p>
-                        <p className="main-color">18642636963</p>
+                        <p className="user-between main-color">18642636963</p>
                         <p className="console-color">广东省 广州市 番禺区 广州大学城外环 西路100号广东工业大学东区9栋</p>
                     </div>
                 </section>

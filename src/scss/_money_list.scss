@@ -7,8 +7,10 @@
     @include clear-header();
 
     .list-header {
-        padding-top: pxToRem(40);
-        height: pxToRem(160-40);
+        padding: {
+            top: pxToRem(40);
+            bottom: pxToRem(10);
+        }
         text-align: center;
         font-size: pxToRem(26);
         color: $font-text-color;
@@ -20,6 +22,18 @@
         .title-num {
             font-size: pxToRem(58);
         }
+    }
+
+    .recharge-btn {
+        display: block;
+        margin: pxToRem(10) auto;
+        width: pxToRem(120);
+        height: pxToRem(50);
+        line-height: pxToRem(50);
+        background: $main-color;
+        font-size: pxToRem(28);
+        color: $back-color;
+        @include border-radius(pxToRem(5));
     }
 
     .money-list-controller {

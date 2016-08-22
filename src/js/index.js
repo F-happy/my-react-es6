@@ -30,6 +30,14 @@ import Settings from './views/settings';
 import PrizeList from './views/prize_list';
 import MyInfo from './views/my_info';
 import PrizeInfo from './views/prize_info';
+import GoodsModule from './views/goods_module';
+import TypeList from './views/type_list';
+import AddressList from './views/addres_list';
+import EditAddress from './views/edit_address';
+import LoginView from './views/login';
+import MessageSystem from './views/message_system';
+import ReaCharge from './views/recharge';
+// import PushOrder from './views/push_order';
 
 require("../scss/main.scss");
 require("../index.html");
@@ -58,7 +66,14 @@ ReactDOM.render((
             <Route path="/settings" component={Settings}/>
             <Route path="/prize_list" component={PrizeList}/>
             <Route path="/my_info" component={MyInfo}/>
-            <Route path="/prize_info" component={PrizeInfo}/>
+            <Route path="/prize_info/:sid" component={PrizeInfo}/>
+            <Route path="/goods_module/:type" component={GoodsModule}/>
+            <Route path="/type_list" component={TypeList}/>
+            <Route path="/address_list" component={AddressList}/>
+            <Route path="/edit_address/:type" component={EditAddress}/>
+            <Route path="/login" component={LoginView}/>
+            <Route path="/message_system" component={MessageSystem}/>
+            <Route path="/recharge" component={ReaCharge}/>
         </Route>
     </Router>
 ), document.getElementById('duobao'));

@@ -68,7 +68,7 @@
                 background: $btn-back-color;
                 @include border-radius(pxToRem(5));
             }
-            .redpack-left {
+            .redpack-left, .redpack-right {
                 @include box();
             }
             .right-icon {

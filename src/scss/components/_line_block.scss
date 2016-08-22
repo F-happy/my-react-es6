@@ -12,7 +12,8 @@
     color: $title-color;
     background: $back-color;
     .list-content {
-        width: 76%;
+        display: block;
+        width: 82%;
     }
     @at-root .right-icon {
         display: -webkit-box;

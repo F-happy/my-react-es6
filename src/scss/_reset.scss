@@ -16,7 +16,6 @@ html, body, div, p, header {
         size: 100%;
         family: inherit;
     }
-;
     vertical-align: baseline;
 }
 
@@ -60,6 +59,10 @@ button {
 
 img {
     width: 100%;
+}
+
+input:focus {
+    outline: none;
 }
 
 /**

@@ -18,7 +18,7 @@
     %header-icon-base{
         display: -webkit-box;
         width: pxToRem(50);
-        height: pxToRem(30);
+        height: pxToRem(36);
     }
     .header-left {
         @extend %header-icon-base;

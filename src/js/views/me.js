@@ -124,7 +124,7 @@ class OtherList extends React.Component {
     render() {
         return (
             <ul className="other-list">
-                <LineBlock toContent="我的收货地址" toLink="prize_list" icon="&#xe614;"/>
+                <LineBlock toContent="我的收货地址" toLink="address_list" icon="&#xe614;"/>
                 <li onClick={this.handleCodeShow.bind(this)}>
                     <i className="me-icon">&#xe60c;</i>
                     <span className="list-content">二维码分享</span>

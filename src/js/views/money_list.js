@@ -4,6 +4,7 @@
 'use strict';
 
 import React from 'react';
+import {Link} from 'react-router';
 import DBheader from '../components/header';
 import API from '../utils/API';
 
@@ -77,6 +78,7 @@ export default class MoneyList extends React.Component {
                 <section className="list-header">
                     <div className="list-title"><span className="title-num">100</span>夺宝币</div>
                     <div>当前账户余额</div>
+                    <Link to={`/recharge/`} className="recharge-btn">充值</Link>
                 </section>
                 <ul className="money-list-controller">
                     {
