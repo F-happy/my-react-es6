@@ -3,7 +3,7 @@
  */
 'use strict';
 import React from 'react';
-import utils from '../utils/Utils';
+import utils from '../utils/utils_box';
 
 export default class queryJDCards extends React.Component {
     constructor(props) {

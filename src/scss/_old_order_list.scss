@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .old-order-list {
-    margin-top: pxToRem(80);
+    @include clear-header();
     margin-bottom: pxToRem(100);
 
     .list-header {
@@ -22,13 +24,8 @@
         background: $back-color;
     }
     .list-img {
-        width: pxToRem(70);
-        height: pxToRem(70);
-        @include border-radius(50%);
+        @include border-box(70);
         overflow: hidden;
-        img {
-            width: 100%;
-        }
     }
     .user-info {
         width: 76%;

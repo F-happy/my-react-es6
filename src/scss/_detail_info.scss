@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .detail-view {
-    margin-top: pxToRem(80);
+    @include clear-header();
     img {
         display:inherit;
         width: 100%;

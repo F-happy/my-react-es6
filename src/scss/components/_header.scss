@@ -1,5 +1,7 @@
 @charset "utf-8";
-@import "../base";
+@import "../utils/colors";
+@import "../utils/mixin";
+@import "../utils/function";
 
 .header-components {
     position: fixed;
@@ -13,16 +15,17 @@
     font-size: pxToRem(36);
     z-index: 999;
     font-family: duobao, sans-serif;
-    .header-left {
+    %header-icon-base{
         display: -webkit-box;
-        margin-left: pxToRem(20);
         width: pxToRem(50);
-        height: pxToRem(30);
+        height: pxToRem(36);
+    }
+    .header-left {
+        @extend %header-icon-base;
+        margin-left: pxToRem(20);
     }
     .header-right {
-        display: -webkit-box;
+        @extend %header-icon-base;
         margin-right: pxToRem(20);
-        width: pxToRem(50);
-        height: pxToRem(30);
     }
 }

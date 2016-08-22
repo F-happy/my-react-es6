@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .shop-cart-view {
-    margin-top: pxToRem(80);
+    @include clear-header();
     margin-bottom: pxToRem(100);
 
     .none-shop {
@@ -143,9 +145,6 @@
             .shop-img {
                 width: pxToRem(130);
                 height: pxToRem(130);
-                img {
-                    width: 100%;
-                }
             }
             .shop-info {
                 width: pxToRem(335);
@@ -212,13 +211,11 @@
                 font-size: pxToRem(20);
             }
             .shop-join-btn {
-                width: pxToRem(62);
-                height: pxToRem(62);
+                @include border-box(62);
                 background: $main-color;
                 color: $back-color;
                 font-size: pxToRem(20);
                 border: none;
-                @include border-radius(50%);
             }
         }
     }

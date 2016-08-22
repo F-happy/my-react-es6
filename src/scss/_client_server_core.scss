@@ -1,8 +1,11 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
+@import "images";
 
 .csc-view {
-    margin: pxToRem(80) auto pxToRem(100);
+    @include clear-header();
     padding-top: pxToRem(20);
     .csc-header {
         height: pxToRem(170);
@@ -17,8 +20,10 @@
         }
 
         h3 {
-            font-size: pxToRem(30);
-            font-weight: bold;
+            font: {
+                size: pxToRem(30);
+                weight: bold;
+            }
             color: $main-color;
             margin: 0 auto;
         }
@@ -56,19 +61,12 @@
             }
         }
     }
-    li, ul {
-        background: $back-color;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
 
     .tab {
         @include box();
-        //display: -webkit-box;
-        //-webkit-box-align: center;
         height: pxToRem(80);
         border-bottom: 1px solid $line-color;
+        background: $back-color;
 
         li {
             width: 50%;
@@ -101,6 +99,7 @@
         .row {
             width: pxToRem(1500);
             height: pxToRem(90);
+            background: $back-color;
             overflow: hidden;
             text-align: left;
             border-bottom: 1px solid $line-color;
@@ -116,8 +115,10 @@
 
         .pre {
             float: right;
-            margin-top: pxToRem(30);
-            margin-right: pxToRem(56);
+            margin: {
+                top: pxToRem(30);
+                right: pxToRem(56);
+            }
             width: pxToRem(40);
             display: inline-block;
             position: relative;
@@ -175,6 +176,7 @@
         }
         100% {
             transform: translate3d(pxToRem(-670), 0, 0);
+            -webkit-font-smoothing: antialiased;
         }
     }
 
@@ -191,6 +193,7 @@
         }
         100% {
             transform: translate3d(0, 0, 0);
+            -webkit-font-smoothing: antialiased;
         }
     }
 }

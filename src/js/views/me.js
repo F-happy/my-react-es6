@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import LineBlock from '../components/inline_block_link';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 
 export default class Me extends React.Component {
     constructor(props) {
@@ -62,14 +62,14 @@ class UserInfo extends React.Component {
     render() {
         return (
             <section className="user-info">
-                <div className="user-header">
+                <Link to={'/my_info/'} className="user-header">
                     <div className="user-img"><img src="http://dummyimage.com/200x200/4A7BF7"/></div>
                     <div className="user-content">
                         <div className="user-name">哈哈哈哈哈哈</div>
                         <div className="user-id">唯一ID: <span className="console-color">1000548</span></div>
                     </div>
                     <i className="right-icon">&#xe607;</i>
-                </div>
+                </Link>
                 <div className="user-body">
                     <Link to={'/redpack/'} className="user-redpack">
                         <i className="redpack-icon"/>
@@ -124,7 +124,7 @@ class OtherList extends React.Component {
     render() {
         return (
             <ul className="other-list">
-                <LineBlock toContent="我的收货地址" toLink="prize_list" icon="&#xe614;"/>
+                <LineBlock toContent="我的收货地址" toLink="address_list" icon="&#xe614;"/>
                 <li onClick={this.handleCodeShow.bind(this)}>
                     <i className="me-icon">&#xe60c;</i>
                     <span className="list-content">二维码分享</span>

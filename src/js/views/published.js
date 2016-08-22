@@ -5,7 +5,7 @@
 import React from 'react';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 import countdown from '../utils/countdown';
 
 export default class Published extends React.Component {
@@ -20,7 +20,7 @@ export default class Published extends React.Component {
 
     componentDidMount() {
         document.querySelector('html').style.background = '#eee';
-        API.get('openlist', '', (data)=> {
+        apiUtils.get('openlist', '', (data)=> {
             this.createDom(data.new_lists);
         });
     }

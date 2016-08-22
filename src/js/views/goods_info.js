@@ -5,8 +5,8 @@
 import React from 'react';
 import {Link} from 'react-router';
 import DBheader from '../components/header';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 
 export default class GoodInfo extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ export default class GoodInfo extends React.Component {
     }
 
     getUserInfo(sid) {
-        API.get('purchase/record', {sid: sid}, (data)=> {
+        apiUtils.get('purchase/record', {sid: sid}, (data)=> {
             this.setState({
                 userList: data
             });
@@ -36,7 +36,7 @@ export default class GoodInfo extends React.Component {
 
     getGoodInfo(sid) {
         let _userInfo = [];
-        API.get('goods/info', {sid: sid}, (data)=> {
+        apiUtils.get('goods/info', {sid: sid}, (data)=> {
             if (data.status == 0) {
                 _userInfo = <section className="good-info">
                     <div className="good-title">

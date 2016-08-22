@@ -1,8 +1,11 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
+@import "images";
 
 .good-info-view {
-    margin-top: pxToRem(80);
+    @include clear-header();
     margin-bottom: pxToRem(100);
 
     .good-info-header {
@@ -135,8 +138,10 @@
         height: pxToRem(90);
         line-height: pxToRem(90);
         text-align: center;
-        border-bottom: pxToRem(2) solid #d4d4d4;
-        border-top: pxToRem(2) solid #d4d4d4;
+        border: {
+            bottom: pxToRem(2) solid #d4d4d4;
+            top: pxToRem(2) solid #d4d4d4;
+        }
     }
     .rewards-wrap {
         position: relative;
@@ -154,12 +159,10 @@
         }
         .user-avatar {
             display: inline-block;
-            width: pxToRem(72);
-            height: pxToRem(72);
+            @include border-box(72);
             margin-left: pxToRem(14);
             margin-top: pxToRem(18);
             vertical-align: top;
-            @include border-radius(50%);
         }
         .rewards-info {
             display: inline-block;
@@ -208,17 +211,17 @@
             @include border-radius(0 2em 2em 0);
         }
         .users {
-            padding-top: pxToRem(10);
             margin-left: pxToRem(25);
-            padding-left: pxToRem(35);
-            padding-bottom: pxToRem(10);
+            padding: {
+                top: pxToRem(10);
+                left: pxToRem(35);
+                bottom: pxToRem(10);
+            }
             border-left: pxToRem(2) solid #b4b4b4;
             font-size: pxToRem(22);
             color: $font-color;
             .user-img {
-                width: pxToRem(72);
-                height: pxToRem(72);
-                @include border-radius(50%);
+                @include border-box(72);
             }
             .user-info {
                 display: inline-block;

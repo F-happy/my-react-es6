@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .pay-view {
-    margin-top: pxToRem(80);
+    @include clear-header();
     %pay-line {
         padding: 0 pxToRem(20);
         @include box(center, justify);
@@ -66,7 +68,7 @@
                 background: $btn-back-color;
                 @include border-radius(pxToRem(5));
             }
-            .redpack-left {
+            .redpack-left, .redpack-right {
                 @include box();
             }
             .right-icon {
@@ -158,16 +160,12 @@
             @include border-radius(pxToRem(10));
         }
         .radio-box {
-            width: pxToRem(28);
-            height: pxToRem(28);
+            @include border-box(28);
             border: pxToRem(2) solid $line-color;
-            @include border-radius(50%);
             @include box();
             .radio {
-                width: pxToRem(15);
-                height: pxToRem(15);
+                @include border-box(15);
                 background: #3ce076;
-                @include border-radius(50%);
             }
         }
     }

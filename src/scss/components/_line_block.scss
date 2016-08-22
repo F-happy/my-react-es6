@@ -1,5 +1,7 @@
 @charset "utf-8";
-@import "../base";
+@import "../utils/colors";
+@import "../utils/mixin";
+@import "../utils/function";
 
 .inline-block-components {
     @include box(center, justify);
@@ -10,10 +12,14 @@
     color: $title-color;
     background: $back-color;
     .list-content {
-        width: 76%;
+        display: block;
+        width: 82%;
     }
-    .right-icon {
+    @at-root .right-icon {
         display: -webkit-box;
+        width: pxToRem(32);
+        height: pxToRem(32);
+        color: $font-color;
     }
     .left-icon {
         width: pxToRem(41);

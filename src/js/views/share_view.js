@@ -7,7 +7,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 
 export default class ShareView extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ export default class ShareView extends React.Component {
     }
 
     componentDidMount() {
-        API.get('share_goods', '', (data)=> {
+        apiUtils.get('share_goods', '', (data)=> {
             this.setState({
                 'shareList': data.share_lists
             });

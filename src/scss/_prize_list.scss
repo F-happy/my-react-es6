@@ -1,8 +1,10 @@
 @charset "utf-8";
-@import "base";
+@import "utils/colors";
+@import "utils/mixin";
+@import "utils/function";
 
 .prize-list-view {
-    margin-top: pxToRem(80);
+    @include clear-header();
 
     .prize-list {
         padding: 0 pxToRem(30);
@@ -97,9 +99,7 @@
         }
         .point {
             @include box();
-            width: pxToRem(30);
-            height: pxToRem(30);
-            @include border-radius(50%);
+            @include border-box(30);
             background: $line-color;
         }
         %point-box-text {
@@ -130,9 +130,7 @@
         }
         .point-root {
             display: block;
-            width: pxToRem(12);
-            height: pxToRem(12);
-            @include border-radius(50%);
+            @include border-box(12);
             background: $back-color;
         }
         .success-box {

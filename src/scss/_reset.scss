@@ -15,7 +15,7 @@ html, body, div, p, header {
         style: inherit;
         size: 100%;
         family: inherit;
-    };
+    }
     vertical-align: baseline;
 }
 
@@ -30,19 +30,23 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 ul, li {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 body {
     //clear click shadow in ios
-    -webkit-tap-highlight-color:rgba(255,255,255,0);
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+
 i {
     display: inline-block;
     font-style: normal;
 }
+
 button {
     padding: 0;
     margin: 0;
@@ -52,6 +56,15 @@ button {
     }
     font-family: duobao;
 }
+
+img {
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
 /**
  *  移动设备常用mediaQuery
  *  应用于1024px以下设备

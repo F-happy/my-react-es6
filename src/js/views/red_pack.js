@@ -5,8 +5,8 @@
 
 import React from 'react';
 import DBheader from '../components/header';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 
 export default class RedPack extends React.Component {
     constructor(props) {
@@ -30,7 +30,7 @@ export default class RedPack extends React.Component {
      * @param page
      */
     loadRedPack(page) {
-        API.get('user/redpack/list', {limit: 10, start_id: page}, (data)=> {
+        apiUtils.get('user/redpack/list', {limit: 10, start_id: page}, (data)=> {
             let redList = [], oldRedList = [];
             data.d.forEach((v)=> {
                 if (v.enable == 1) {

@@ -2,9 +2,9 @@
  * Created by fuhuixiang on 16-8-20.
  */
 import React from 'react';
-import {Link} from 'react-router';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import {Link, hashHistory} from 'react-router';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 import DBheader from '../components/header';
 import toast from '../components/toast';
 
@@ -17,12 +17,16 @@ export default class PrizeList extends React.Component {
         document.querySelector('html').style.background = '#eee';
     }
 
+    handlePrizeView(){
+        hashHistory.push('/address_list');
+    }
+
     render() {
         return (
             <article className="prize-list-view">
                 <DBheader title="中奖记录" left={'goBack'}/>
                 <section className="prize-list">
-                    <div className="prize-header">
+                    <Link to={`/prize_info/${'100'}`} className="prize-header">
                         <img src="http://dummyimage.com/200x200/4A7BF7" className="good-img"/>
                         <div className="good-info">
                             <div className="good-header">
@@ -33,7 +37,7 @@ export default class PrizeList extends React.Component {
                             <p className="good-text">本期参与: <span className="console-color">10</span>人次</p>
                             <p className="good-text">揭晓时间: 2015-04-05 13:30</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className="prize-bottom">
                         <div className="prize-progress">
                             <div className="point-box first success-box">
@@ -52,11 +56,11 @@ export default class PrizeList extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="prize-btn">确认地址</button>
+                        <button className="prize-btn" onClick={this.handlePrizeView.bind(this)}>确认地址</button>
                     </div>
                 </section>
                 <section className="prize-list">
-                    <div className="prize-header">
+                    <Link to={`/prize_info/${'100'}`} className="prize-header">
                         <img src="http://dummyimage.com/200x200/4A7BF7" className="good-img"/>
                         <div className="good-info">
                             <div className="good-header">
@@ -67,7 +71,7 @@ export default class PrizeList extends React.Component {
                             <p className="good-text">本期参与: <span className="console-color">10</span>人次</p>
                             <p className="good-text">揭晓时间: 2015-04-05 13:30</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className="prize-bottom">
                         <div className="prize-progress progress-begin">
                             <div className="point-box first success-box">
@@ -86,11 +90,11 @@ export default class PrizeList extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="prize-btn">确认地址</button>
+                        <button className="prize-btn" onClick={this.handlePrizeView.bind(this)}>确认地址</button>
                     </div>
                 </section>
                 <section className="prize-list">
-                    <div className="prize-header">
+                    <Link to={`/prize_info/${'100'}`} className="prize-header">
                         <img src="http://dummyimage.com/200x200/4A7BF7" className="good-img"/>
                         <div className="good-info">
                             <div className="good-header">
@@ -101,7 +105,7 @@ export default class PrizeList extends React.Component {
                             <p className="good-text">本期参与: <span className="console-color">10</span>人次</p>
                             <p className="good-text">揭晓时间: 2015-04-05 13:30</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className="prize-bottom">
                         <div className="prize-progress progress-end">
                             <div className="point-box first success-box">
@@ -120,7 +124,7 @@ export default class PrizeList extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="prize-btn">确认地址</button>
+                        <button className="prize-btn" onClick={this.handlePrizeView.bind(this)}>确认地址</button>
                     </div>
                 </section>
             </article>
