@@ -2,8 +2,8 @@
  * Created by fuhuixiang on 16-8-19.
  */
 import React from 'react';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 import DBheader from '../components/header';
 import LineBlock from '../components/inline_block_link';
 

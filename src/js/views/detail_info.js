@@ -3,29 +3,29 @@
  */
 'use strict';
 import React from 'react';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 import DBheader from '../components/header';
 
 export default class DetailInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            imgArry: []
+            imgArray: []
         };
     }
 
     componentDidMount() {
         let gid = this.props.params.id;
         if (!!gid) {
-            API.get('goods/detail', {gid: gid}, (data)=> {
+            apiUtils.get('goods/detail', {gid: gid}, (data)=> {
                 if (data.c == 0) {
                     let detail = data.d.detail.split(',');
-                    let imgArry = [];
+                    let imgArray = [];
                     detail.forEach((v)=> {
-                        imgArry.push(v);
+                        imgArray.push(v);
                     });
                     this.setState({
-                        imgArry: imgArry
+                        imgArray: imgArray
                     });
                 }
             });
@@ -43,7 +43,7 @@ export default class DetailInfo extends React.Component {
             <p>点击刷新或进行网络设置</p>
             <button onClick={this.handleReload.bind(this)}>刷新</button>
         </div>;
-        this.state.imgArry.forEach((v, index)=> {
+        this.state.imgArray.forEach((v, index)=> {
             images.push(<img src={v} key={index}/>);
         });
         let imagePage = images.length > 0 ? images : errorPage;

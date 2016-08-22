@@ -3,7 +3,7 @@
  */
 'use strict';
 import React from 'react';
-import utils from '../utils/Utils';
+import utils from '../utils/utils_box';
 
 export default class QueryPhoto extends React.Component {
     constructor(props) {

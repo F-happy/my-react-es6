@@ -7,7 +7,7 @@ import { Link } from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import LineBlock from '../components/inline_block_link';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 
 export default class Me extends React.Component {
     constructor(props) {

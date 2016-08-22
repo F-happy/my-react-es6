@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtil from '../utils/api_utils';
+import util from '../utils/utils_box';
 import DBheader from '../components/header';
 import toast from '../components/toast';
 

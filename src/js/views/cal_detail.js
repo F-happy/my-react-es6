@@ -3,7 +3,7 @@
  */
 'use strict';
 import React from 'react';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 import DBheader from '../components/header';
 
 export default class Caldetail extends React.Component {
@@ -22,7 +22,7 @@ export default class Caldetail extends React.Component {
     componentDidMount() {
         document.querySelector('html').style.background = '#eee';
         let sid = this.props.params.sid;
-        API.get('caldetail/info', {sid: sid}, (data)=> {
+        apiUtils.get('caldetail/info', {sid: sid}, (data)=> {
             if (data.status == 1) {
                 let salesList = data.d.sales;
                 //根据status值进行状态判断

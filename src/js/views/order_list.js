@@ -4,8 +4,8 @@
 'use strict';
 import React from 'react';
 import {Link} from 'react-router';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import ReactSwipe from '../components/swipe';

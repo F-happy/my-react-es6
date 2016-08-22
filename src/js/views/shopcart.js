@@ -8,8 +8,8 @@ import {Link, hashHistory} from 'react-router';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import toast from '../components/toast';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 
 export default class ShopCart extends React.Component {
     constructor(prop) {
@@ -40,7 +40,7 @@ export default class ShopCart extends React.Component {
     }
 
     loadMyCart(){
-        API.get('shopcat/mycart', '', (data)=> {
+        apiUtils.get('shopcat/mycart', '', (data)=> {
             let shopCart = [];
             if (data.length > 0) {
                 let _total = 0;
@@ -82,7 +82,7 @@ export default class ShopCart extends React.Component {
     }
 
     isNoneView() {
-        API.get('shopcat/youlike', '', (data)=> {
+        apiUtils.get('shopcat/youlike', '', (data)=> {
             let youLikeView = [];
             data.forEach((v)=> {
                 youLikeView.push(

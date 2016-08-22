@@ -5,7 +5,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import DBheader from '../components/header';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 
 export default class PkView extends React.Component {
     constructor(props) {

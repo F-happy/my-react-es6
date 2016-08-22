@@ -6,7 +6,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import DBheader from '../components/header';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 
 export default class MoneyList extends React.Component {
     constructor(props) {
@@ -39,7 +39,7 @@ export default class MoneyList extends React.Component {
 
     loadRechargeList() {
         let _start = this.state.start;
-        API.get('users/records/list', {start: _start, limit: 10}, (data)=> {
+        apiUtils.get('users/records/list', {start: _start, limit: 10}, (data)=> {
             let reList = this.state.rechargeList;
             data.forEach((v)=> {
                 let _status = (v.status == 3) ? 'success' : 'not';

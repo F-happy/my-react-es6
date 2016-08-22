@@ -4,8 +4,8 @@
 'use strict';
 import React from 'react';
 import { Link } from 'react-router';
-import API from '../utils/API';
-import util from '../utils/Utils';
+import apiUtils from '../utils/api_utils';
+import util from '../utils/utils_box';
 import DBheader from '../components/header';
 import DBFooter from '../components/footer';
 import ReactSwipe from '../components/swipe';
@@ -29,7 +29,7 @@ export default class Index extends React.Component {
     }
 
     loadBanners() {
-        API.get('banner', '', (data)=> {
+        apiUtils.get('banner', '', (data)=> {
             this.setState({
                 'bannersLists': data.img_list
             });
@@ -37,7 +37,7 @@ export default class Index extends React.Component {
     }
 
     loadGoodInfo(type) {
-        API.get('goods', {type: type}, (data)=> {
+        apiUtils.get('goods', {type: type}, (data)=> {
             this.setState({
                 'goodLists': data.good_lists
             });

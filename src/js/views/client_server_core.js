@@ -4,7 +4,7 @@
 'use strict';
 import React from 'react';
 import DBheader from '../components/header';
-import utils from '../utils/Utils';
+import utils from '../utils/utils_box';
 
 export default class CSC extends React.Component {
     constructor(props) {

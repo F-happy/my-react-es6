@@ -2,7 +2,7 @@
  * Created by fuhuixiang on 16-6-6.
  */
 'use strict';
-import API from '../utils/API';
+import apiUtils from '../utils/api_utils';
 
 class Utils {
     // 构造函数
@@ -70,14 +70,14 @@ class Utils {
     }
 
     addShopCart(sid, buy = 5) {
-        API.get('shopcat/putcart', {sid: sid, uid: this.getCookie('uid'), buy: buy}, (data)=> {
+        apiUtils.get('shopcat/putcart', {sid: sid, uid: this.getCookie('uid'), buy: buy}, (data)=> {
             return data.c == 0;
         });
         return false;
     }
 
     removeShopCart(sid){
-        API.get('shopcat/delcart', {sid: sid, uid: this.getCookie('uid')}, (data)=> {
+        apiUtils.get('shopcat/delcart', {sid: sid, uid: this.getCookie('uid')}, (data)=> {
             return data.c == 0;
         });
         return false;
